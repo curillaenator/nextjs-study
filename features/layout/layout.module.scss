@@ -1,0 +1,46 @@
+@use '../../theme/colors' as theme;
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100vw;
+
+  // &_light {
+  //   @include theme.light;
+  // }
+
+  // &_dark {
+  //   @include theme.dark;
+  // }
+
+  @include theme.light;
+
+  @media (prefers-color-scheme: dark) {
+    @include theme.dark;
+  }
+}
+
+$asideMin: 88px;
+$asideMax: 384px;
+
+.aside {
+  flex: 0 0 auto;
+
+  width: $asideMin;
+
+  min-height: 100vh;
+  max-height: 100vh;
+
+  transition: width 200ms ease;
+
+  background-color: var(--neutral-200);
+
+  &_open {
+    width: $asideMax;
+  }
+}
+
+.view {
+  width: 100%;
+  flex: 1 1 auto;
+}

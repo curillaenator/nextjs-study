@@ -1,22 +1,17 @@
 @use '../theme/utils' as themeUtils;
+@use '../theme/colors' as theme;
 
-$colorHue: 4;
+// html {
+//   color-scheme: light;
 
-html {
-  color-scheme: light;
+//   @include theme.light;
 
-  @each $neutralColorKey, $neutralColor in themeUtils.getNeutrals($colorHue) {
-    #{'' + $neutralColorKey}: $neutralColor;
-  }
+//   @media (prefers-color-scheme: dark) {
+//     color-scheme: dark;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-
-    @each $neutralColorKey, $neutralColor in themeUtils.getNeutrals($colorHue, 'true') {
-      #{'' + $neutralColorKey}: $neutralColor;
-    }
-  }
-}
+//     @include theme.dark;
+//   }
+// }
 
 html,
 body {

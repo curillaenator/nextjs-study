@@ -4,6 +4,11 @@ interface BlogItemProps {
   params: { id: string };
 }
 
+const generateMetadata = async ({ params }: BlogItemProps) => {
+  const { id } = await params;
+  return { title: `Blog ${id}` };
+};
+
 const BlogItemPage: FC<BlogItemProps> = async ({ params }) => {
   const { id } = await params;
 
@@ -13,5 +18,7 @@ const BlogItemPage: FC<BlogItemProps> = async ({ params }) => {
     </div>
   );
 };
+
+export { generateMetadata };
 
 export default BlogItemPage;

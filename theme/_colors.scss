@@ -1,18 +1,38 @@
+@use './utils' as utils;
+
 $colors: (
   'blue': (
     'h': 40,
     's': 92,
+    'l': 57,
   ),
   'red': (
     'h': 4,
     's': 100,
+    'l': 46,
   ),
   'green': (
     'h': 94,
     's': 92,
+    'l': 40,
   ),
   'orange': (
     'h': 18,
     's': 100,
+    'l': 54,
   ),
 );
+
+$colorHue: 4;
+
+@mixin light {
+  @each $neutralColorKey, $neutralColor in utils.getNeutrals($colorHue) {
+    #{'' + $neutralColorKey}: $neutralColor;
+  }
+}
+
+@mixin dark {
+  @each $neutralColorKey, $neutralColor in utils.getNeutrals($colorHue, 'true') {
+    #{'' + $neutralColorKey}: $neutralColor;
+  }
+}
