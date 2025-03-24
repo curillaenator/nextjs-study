@@ -2,26 +2,39 @@
 @use 'sass:map';
 
 $steps: (
-  '900': 0,
-  '800': 0.125,
-  '700': 0.25,
-  '600': 0.375,
-  '500': 0.5,
-  '400': 0.625,
-  '300': 0.75,
-  '200': 0.875,
-  '100': 1,
+  900: 0,
+  800: 0.125,
+  700: 0.25,
+  600: 0.375,
+  500: 0.5,
+  400: 0.625,
+  300: 0.75,
+  200: 0.875,
+  100: 1,
 );
 
-// $SQUARE_SPREAD_REDUCTOR: 0.82;
 $SQUARE_SPREAD_REDUCTOR: 0.9;
+$DARKEST_LIGHTNESS: 10%;
 
-@function getNeutrals($hue, $sat: 6%) {
+@function getNeutrals($hue, $dm: 'false') {
   $neutrals: ();
 
   @each $stepKey, $stepVal in $steps {
-    $light: calc((math.percentage(math.pow($stepVal, 2)) * $SQUARE_SPREAD_REDUCTOR) + 10%);
-    $neutrals: map.merge($neutrals, (#{'--neutral-' + $stepKey}: hsl($hue, $sat, $light)));
+    $light: calc((math.percentage(math.pow($stepVal, 2)) * $SQUARE_SPREAD_REDUCTOR) + $DARKEST_LIGHTNESS);
+
+    $neutralKey: #{'--neutral-' + $stepKey};
+
+    // reverse keys if darkmode
+    @if $dm == 'true' {
+      $neutralKey: #{'--neutral-' + calc(1000 - $stepKey)};
+    }
+
+    $neutrals: map.merge(
+      $neutrals,
+      (
+        $neutralKey: hsl($hue, 6%, $light),
+      )
+    );
   }
 
   @return $neutrals;

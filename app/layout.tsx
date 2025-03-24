@@ -1,6 +1,9 @@
 import cn from 'classnames';
 import { Inter, Geist_Mono } from 'next/font/google';
 
+import { Header } from '@/features/header';
+
+import styles from './layout.module.scss';
 import './globals.scss';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
@@ -11,9 +14,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const [isAside, setIsAside] = useState<boolean>(false);
+
+  const isAside = true;
+
   return (
     <html lang='en'>
-      <body className={cn(inter.variable, geistMono.variable)}>{children}</body>
+      <body className={cn(styles.body, inter.variable, geistMono.variable)}>
+        <aside
+          className={cn(styles.aside, {
+            [styles.aside_open]: isAside,
+          })}
+        ></aside>
+
+        <main className={styles.view}>
+          <Header toggleAside={() => false} />
+          <div>{children}</div>
+        </main>
+      </body>
     </html>
   );
 }

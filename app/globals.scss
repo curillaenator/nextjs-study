@@ -1,19 +1,20 @@
 @use '../theme/utils' as themeUtils;
 
-$neutrals: themeUtils.getNeutrals(40);
+$colorHue: 4;
 
 html {
-  --theme-hue: 40;
+  color-scheme: light;
 
-  @each $neutralColorKey, $neutralColor in themeUtils.getNeutrals(var(--theme-hue, 40)) {
+  @each $neutralColorKey, $neutralColor in themeUtils.getNeutrals($colorHue) {
     #{'' + $neutralColorKey}: $neutralColor;
   }
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
 
-    --background-base: var(--neutral-900);
-    --foreground-base: var(--neutral-100);
+    @each $neutralColorKey, $neutralColor in themeUtils.getNeutrals($colorHue, 'true') {
+      #{'' + $neutralColorKey}: $neutralColor;
+    }
   }
 }
 
@@ -24,8 +25,8 @@ body {
 }
 
 body {
-  color: var(--foreground-base);
-  background: var(--background-base);
+  color: var(--neutral-900);
+  background: var(--neutral-100);
 
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
