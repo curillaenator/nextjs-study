@@ -1,0 +1,28 @@
+@use 'sass:math';
+@use 'sass:map';
+
+$steps: (
+  '900': 0,
+  '800': 0.125,
+  '700': 0.25,
+  '600': 0.375,
+  '500': 0.5,
+  '400': 0.625,
+  '300': 0.75,
+  '200': 0.875,
+  '100': 1,
+);
+
+// $SQUARE_SPREAD_REDUCTOR: 0.82;
+$SQUARE_SPREAD_REDUCTOR: 0.9;
+
+@function getNeutrals($hue, $sat: 6%) {
+  $neutrals: ();
+
+  @each $stepKey, $stepVal in $steps {
+    $light: calc((math.percentage(math.pow($stepVal, 2)) * $SQUARE_SPREAD_REDUCTOR) + 10%);
+    $neutrals: map.merge($neutrals, (#{'--neutral-' + $stepKey}: hsl($hue, $sat, $light)));
+  }
+
+  @return $neutrals;
+}
