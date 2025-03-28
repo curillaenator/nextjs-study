@@ -25,10 +25,10 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         <button onClick={() => setIsAside((prev) => !prev)}>Aside</button>
       </aside>
 
-      <main className={styles.view}>
+      <div className={styles.view}>
         <Header />
-        <div>{children}</div>
-      </main>
+        <main>{children}</main>
+      </div>
     </body>
   );
 };

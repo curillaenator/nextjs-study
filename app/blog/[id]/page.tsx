@@ -1,24 +1,34 @@
-import { FC } from 'react';
+import type { JSONPlaceholderPost } from '../interfaces';
+import styles from '../blog.module.scss';
 
 interface BlogItemProps {
   params: { id: string };
 }
 
-const generateMetadata = async ({ params }: BlogItemProps) => {
-  const { id } = await params;
-  return { title: `Blog ${id}` };
+const getData = async (id: number) => {
+  const data = await fetch(`https://api.vercel.app/blog/${id}`, {
+    next: { revalidate: 60 },
+  });
+
+  return (await data.json()) as JSONPlaceholderPost;
 };
 
-const BlogItemPage: FC<BlogItemProps> = async ({ params }) => {
+export default async function BlogItemPage({ params }: BlogItemProps) {
   const { id } = await params;
+  const { title, content } = await getData(parseInt(id));
 
   return (
-    <div>
-      <h1>Blog {id}</h1>
+    <div className={styles.blog}>
+      <h1 className={styles.title}>{title}</h1>
+
+      <p>{content}</p>
     </div>
   );
+}
+
+export const generateMetadata = async ({ params }: BlogItemProps) => {
+  const { id } = await params;
+  const { title } = await getData(parseInt(id));
+
+  return { title };
 };
-
-export { generateMetadata };
-
-export default BlogItemPage;
