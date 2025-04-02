@@ -1,16 +1,41 @@
 @use '../../theme/sizes' as sizes;
 
+$appearances: (
+  'primary': (
+    'bgc': var(--theme-primary-500),
+    'bgc-h': var(--theme-primary-300),
+    'bgc-a': var(--theme-primary-700),
+    'bgc-p': var(--theme-primary-700),
+    'bdc': 'transparent',
+    'bdc-h': 'transparent',
+    'bdc-a': 'transparent',
+    'bdc-p': 'transparent',
+    'text': '#fff',
+  ),
+  'secondary': (
+    'bgc': var(--theme-neutral-400),
+    'bgc-h': var(--theme-neutral-300),
+    'bgc-a': var(--theme-neutral-500),
+    'bgc-p': var(--theme-neutral-600),
+    'bdc': 'transparent',
+    'bdc-h': 'transparent',
+    'bdc-a': 'transparent',
+    'bdc-p': 'transparent',
+    'text': var(--theme-neutral-900),
+  ),
+);
+
 .button {
   height: var(--component-h);
   padding: var(--component-pd);
   border-radius: var(--component-bdrs);
 
-  background-color: var(--theme-primary-500);
+  background-color: var(--component-bgc);
 
   font-family: var(--font-geist);
   font-size: var(--component-fz);
   line-height: var(--component-lh);
-  color: #fff;
+  color: var(--component-text);
 
   border: none;
   outline: none;
@@ -19,11 +44,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--theme-primary-300);
+      background-color: var(--component-bgc-h);
     }
 
     &:active {
-      background-color: var(--theme-primary-700);
+      background-color: var(--component-bgc-a);
     }
   }
 
@@ -31,6 +56,14 @@
     width: 24px;
     height: 24px;
     flex: 0 0 auto;
+  }
+
+  @each $appearance, $values in $appearances {
+    &_#{'' + $appearance} {
+      @each $prop, $v in $values {
+        --component-#{'' + $prop}: #{$v};
+      }
+    }
   }
 
   @each $sizeName, $vals in sizes.$sizes {

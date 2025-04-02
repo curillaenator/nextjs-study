@@ -17,10 +17,16 @@ $SQUARE_SPREAD_REDUCTOR: 0.9;
 $DARKEST_LIGHTNESS: 10%;
 
 @function getNeutrals($hue, $dm: 'false') {
+  $sat: 4%;
+
+  @if $dm == 'false' {
+    $sat: 16%;
+  }
+
   $neutrals: ();
 
   @each $stepKey, $stepVal in $steps {
-    $light: calc((math.percentage(math.pow($stepVal, 2)) * $SQUARE_SPREAD_REDUCTOR) + $DARKEST_LIGHTNESS);
+    $light: calc((math.percentage(math.pow($stepVal, 1.5)) * $SQUARE_SPREAD_REDUCTOR) + $DARKEST_LIGHTNESS);
 
     $neutralKey: #{'--theme-neutral-' + $stepKey};
 
@@ -36,7 +42,7 @@ $DARKEST_LIGHTNESS: 10%;
     $neutrals: map.merge(
       $neutrals,
       (
-        $neutralKey: hsl($hue, 6%, $light),
+        $neutralKey: hsl($hue, $sat, $light),
       )
     );
   }
@@ -99,7 +105,7 @@ $minLight: 20%;
     @if $colorName == 'primary' {
       $primaryHue: map.get($hsl, 'h');
 
-      @each $neutralColorKey, $neutralColor in getNeutrals($primaryHue - 180, $darkmode) {
+      @each $neutralColorKey, $neutralColor in getNeutrals($primaryHue, $darkmode) {
         $themeCssv: map.merge(
           $themeCssv,
           (

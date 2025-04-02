@@ -20,7 +20,7 @@ const Header: FC = () => {
     <header className={styles.header}>
       <nav className={styles.navigation}>
         {NAV.map(({ title, href }) => (
-          <Button key={href} component={Link} href={href}>
+          <Button key={href} component={Link} href={href} appearance='primary'>
             {title}
           </Button>
         ))}

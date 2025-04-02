@@ -6,18 +6,23 @@ import styles from './button.module.scss';
 
 interface ButtonProps extends PropsWithChildren<HTMLAttributes<HTMLButtonElement>> {
   size?: 'small' | 'medium' | 'large';
+  appearance?: 'primary' | 'secondary';
   component?: typeof Link;
   href?: string;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { children, size = 'medium', component, href, ...rest } = props;
+  const { children, size = 'medium', appearance = 'secondary', component, href, ...rest } = props;
 
   const Component = component ? component : ('button' as ElementType);
   const linkProps = component ? { href } : {};
 
   return (
-    <Component {...rest} {...linkProps} className={cn(styles.button, styles[`button_${size}`])}>
+    <Component
+      {...rest}
+      {...linkProps}
+      className={cn(styles.button, styles[`button_${size}`], styles[`button_${appearance}`])}
+    >
       {children}
     </Component>
   );
