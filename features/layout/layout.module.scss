@@ -18,6 +18,8 @@
 }
 
 .body {
+  --theme-white: hsl(0, 0%, 100%);
+
   @include layoutSizes;
 
   display: flex;
