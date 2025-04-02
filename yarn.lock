@@ -714,7 +714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:19":
+"@types/react-dom@npm:^19":
   version: 19.0.4
   resolution: "@types/react-dom@npm:19.0.4"
   peerDependencies:
@@ -723,7 +723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19":
+"@types/react@npm:^19":
   version: 19.0.12
   resolution: "@types/react@npm:19.0.12"
   dependencies:
@@ -1497,6 +1497,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"effector-react@npm:^23.3.0":
+  version: 23.3.0
+  resolution: "effector-react@npm:23.3.0"
+  dependencies:
+    use-sync-external-store: ^1.0.0
+  peerDependencies:
+    effector: ^23.0.0
+    react: ">=16.8.0 <20.0.0"
+  checksum: 61d4aa917b0e62a52de17123f34ecca3da5964b041d2722c875c4e9aa90b9aed1bc9be12d423104e874ef54a66c1dc14fdb773c236bbc9ec00c913243405f022
+  languageName: node
+  linkType: hard
+
+"effector@npm:^23.3.0":
+  version: 23.3.0
+  resolution: "effector@npm:23.3.0"
+  checksum: 9f9f340017d8e088c4bdab34366ff50a582016ab2e01a4707c1b1d192a6d8d26536458544b4390d0bf9d24a805b60252a647970cb5009666b3928f94296a7ba4
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -1865,7 +1884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:9":
+"eslint@npm:^9":
   version: 9.23.0
   resolution: "eslint@npm:9.23.0"
   dependencies:
@@ -3084,17 +3103,19 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": ^3
     "@types/node": ^20
-    "@types/react": 19
-    "@types/react-dom": 19
+    "@types/react": ^19
+    "@types/react-dom": ^19
     classnames: 2.5.1
-    eslint: 9
+    effector: ^23.3.0
+    effector-react: ^23.3.0
+    eslint: ^9
     eslint-config-next: 15.2.3
     next: 15.2.3
-    react: 19.0.0
-    react-dom: 19.0.0
+    react: ^19.0.0
+    react-dom: ^19.0.0
     react-icons: 5.5.0
-    sass: 1.86.0
-    typescript: 5
+    sass: ^1.86.0
+    typescript: ^5
   languageName: unknown
   linkType: soft
 
@@ -3405,14 +3426,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react-dom@npm:19.0.0"
+"react-dom@npm:^19.0.0":
+  version: 19.1.0
+  resolution: "react-dom@npm:19.1.0"
   dependencies:
-    scheduler: ^0.25.0
+    scheduler: ^0.26.0
   peerDependencies:
-    react: ^19.0.0
-  checksum: 009cc6e575263a0d1906f9dd4aa6532d2d3d0d71e4c2b7777c8fe4de585fa06b5b77cdc2e0fbaa2f3a4a5e5d3305c189ba152153f358ee7da4d9d9ba5d3a8975
+    react: ^19.1.0
+  checksum: 1d154b6543467095ac269e61ca59db546f34ef76bcdeb90f2dad41d682cd210aae492e70c85010ed5d0a2caea225e9a55139ebc1a615ee85bf197d7f99678cdf
   languageName: node
   linkType: hard
 
@@ -3432,10 +3453,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react@npm:19.0.0"
-  checksum: 86de15d85b2465feb40297a90319c325cb07cf27191a361d47bcfe8c6126c973d660125aa67b8f4cbbe39f15a2f32efd0c814e98196d8e5b68c567ba40a399c6
+"react@npm:^19.0.0":
+  version: 19.1.0
+  resolution: "react@npm:19.1.0"
+  checksum: c0905f8cfb878b0543a5522727e5ed79c67c8111dc16ceee135b7fe19dce77b2c1c19293513061a8934e721292bfc1517e0487e262d1906f306bdf95fa54d02f
   languageName: node
   linkType: hard
 
@@ -3659,9 +3680,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.86.0":
-  version: 1.86.0
-  resolution: "sass@npm:1.86.0"
+"sass@npm:^1.86.0":
+  version: 1.86.1
+  resolution: "sass@npm:1.86.1"
   dependencies:
     "@parcel/watcher": ^2.4.1
     chokidar: ^4.0.0
@@ -3672,14 +3693,14 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: d920fc748ae7c58c19794e966c6869ff81a7e4d458c992d29abddac6e5648b0da8140fdd5d60f3401be9528df38122e4ead32b829ae0d61c35dbb0ff849477cf
+  checksum: b578c4a7e34cf0edd4fd907a36529c7feeec769162ba776fc5701caa24adc01e81ccf104013a5da6a36431d4820b3ea47d84843ed6244cd6948d10fda01a2aa1
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.25.0":
-  version: 0.25.0
-  resolution: "scheduler@npm:0.25.0"
-  checksum: b7bb9fddbf743e521e9aaa5198a03ae823f5e104ebee0cb9ec625392bb7da0baa1c28ab29cee4b1e407a94e76acc6eee91eeb749614f91f853efda2613531566
+"scheduler@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "scheduler@npm:0.26.0"
+  checksum: c63a9f1c0e5089b537231cff6c11f75455b5c8625ae09535c1d7cd0a1b0c77ceecdd9f1074e5e063da5d8dc11e73e8033dcac3361791088be08a6e60c0283ed9
   languageName: node
   linkType: hard
 
@@ -4241,7 +4262,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5":
+"typescript@npm:^5":
   version: 5.8.2
   resolution: "typescript@npm:5.8.2"
   bin:
@@ -4251,7 +4272,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@5#~builtin<compat/typescript>":
+"typescript@patch:typescript@^5#~builtin<compat/typescript>":
   version: 5.8.2
   resolution: "typescript@patch:typescript@npm%3A5.8.2#~builtin<compat/typescript>::version=5.8.2&hash=5da071"
   bin:
@@ -4304,6 +4325,15 @@ __metadata:
   dependencies:
     punycode: ^2.1.0
   checksum: 7167432de6817fe8e9e0c9684f1d2de2bb688c94388f7569f7dbdb1587c9f4ca2a77962f134ec90be0cc4d004c939ff0d05acc9f34a0db39a3c797dada262633
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.0.0":
+  version: 1.5.0
+  resolution: "use-sync-external-store@npm:1.5.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 5e639c9273200adb6985b512c96a3a02c458bc8ca1a72e91da9cdc6426144fc6538dca434b0f99b28fb1baabc82e1c383ba7900b25ccdcb43758fb058dc66c34
   languageName: node
   linkType: hard
 

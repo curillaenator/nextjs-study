@@ -1,31 +1,29 @@
 'use client';
 
-import React, { FC, SetStateAction } from 'react';
+import React, { FC } from 'react';
+import { useUnit } from 'effector-react';
 import cn from 'classnames';
 
 import { TbLayoutSidebarLeftExpand, TbLayoutSidebarRightExpand } from 'react-icons/tb';
+
+import { $appStore, toggleAside } from '@/entities/app';
 
 import { Button } from '../button';
 
 import styles from './aside.module.scss';
 
-interface AsideProps {
-  isAside: boolean;
-  setIsAside: (value: SetStateAction<boolean>) => void;
-}
-
-const Aside: FC<AsideProps> = (props) => {
-  const { isAside, setIsAside } = props;
+const Aside: FC = () => {
+  const { isAsideOpen } = useUnit($appStore);
 
   return (
     <aside
       className={cn(styles.aside, {
-        [styles.aside_open]: isAside,
+        [styles.aside_open]: isAsideOpen,
       })}
     >
       <header>
-        <Button onClick={() => setIsAside((prev) => !prev)}>
-          {isAside ? <TbLayoutSidebarRightExpand /> : <TbLayoutSidebarLeftExpand />}
+        <Button onClick={() => toggleAside()}>
+          {isAsideOpen ? <TbLayoutSidebarRightExpand /> : <TbLayoutSidebarLeftExpand />}
         </Button>
       </header>
     </aside>
