@@ -1,8 +1,20 @@
-@use '../../theme/colors' as theme;
+@use '../../theme/colors' as colors;
 @use '../../theme/utils' as utils;
 
 @mixin layoutSizes {
   --layout-pd: 24px;
+}
+
+@mixin light {
+  @each $cssv, $val in utils.getTheme(colors.$default) {
+    #{'' + $cssv}: #{$val};
+  }
+}
+
+@mixin dark {
+  @each $cssv, $val in utils.getTheme(colors.$default, 'true') {
+    #{'' + $cssv}: #{$val};
+  }
 }
 
 .body {
@@ -12,27 +24,19 @@
   align-items: flex-start;
   max-width: 100vw;
 
-  @each $colorName, $hsl in theme.$colors {
-    &_#{'' + $colorName} {
-      @each $colorKey, $colorVal in utils.getColorset($hsl, $colorName) {
-        #{'' + $colorKey}: $colorVal;
-      }
-    }
-  }
-
   &_light {
-    @include theme.light;
+    @include light;
   }
 
   &_dark {
-    @include theme.dark;
+    @include dark;
   }
 
   &_automode {
-    @include theme.light;
+    @include light;
 
     @media (prefers-color-scheme: dark) {
-      @include theme.dark;
+      @include dark;
     }
   }
 }

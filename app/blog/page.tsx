@@ -24,7 +24,7 @@ export default async function Blog() {
   return (
     <ul className={styles.list}>
       {posts.map(({ id, title, content }: JSONPlaceholderPost, idx) => (
-        <li key={`${id}_${idx}`}>
+        <li key={title}>
           <Link href={`/blog/${id}`}>{title}</Link>
         </li>
       ))}

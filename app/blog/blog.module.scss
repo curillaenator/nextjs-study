@@ -16,11 +16,11 @@
 
   & > li {
     &:hover {
-      color: var(--theme-neutral-800);
+      color: var(--theme-primary-300);
     }
 
     &:active {
-      color: var(--theme-neutral-700);
+      color: var(--theme-primary-700);
     }
   }
 }

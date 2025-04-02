@@ -16,14 +16,12 @@ import styles from './layout.module.scss';
 const inter = Geist({ variable: '--font-geist', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
-const cssv = [styles.body_blue, styles.body_red, styles.body_green, styles.body_orange];
-
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   const { darkmode } = useUnit($appStore);
 
   return (
     <body
-      className={cn(styles.body, ...cssv, inter.variable, geistMono.variable, {
+      className={cn(styles.body, inter.variable, geistMono.variable, {
         [styles.body_automode]: darkmode === undefined,
         [styles[`body_${darkmode ? 'dark' : 'light'}`]]: darkmode !== undefined,
       })}

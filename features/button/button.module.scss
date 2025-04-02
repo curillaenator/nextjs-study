@@ -5,7 +5,7 @@
   padding: var(--component-pd);
   border-radius: var(--component-bdrs);
 
-  background-color: var(--theme-blue-500);
+  background-color: var(--theme-primary-500);
 
   font-family: var(--font-geist);
   font-size: var(--component-fz);
@@ -19,11 +19,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--theme-blue-300);
+      background-color: var(--theme-primary-300);
     }
 
     &:active {
-      background-color: var(--theme-blue-700);
+      background-color: var(--theme-primary-700);
     }
   }
 

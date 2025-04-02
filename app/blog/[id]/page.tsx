@@ -20,7 +20,6 @@ export default async function BlogItemPage({ params }: BlogItemProps) {
   return (
     <div className={styles.blog}>
       <h1 className={styles.title}>{title}</h1>
-
       <p>{content}</p>
     </div>
   );

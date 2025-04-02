@@ -24,8 +24,12 @@ $DARKEST_LIGHTNESS: 10%;
 
     $neutralKey: #{'--theme-neutral-' + $stepKey};
 
-    // reverse keys if darkmode
     @if $dm == 'true' {
+      $neutralKey: #{'--theme-neutral-' + calc(1000 - $stepKey)};
+    }
+
+    @if $dm == 'false' {
+      $light: calc(100% - $light + $DARKEST_LIGHTNESS);
       $neutralKey: #{'--theme-neutral-' + calc(1000 - $stepKey)};
     }
 
@@ -45,7 +49,7 @@ $DARKEST_LIGHTNESS: 10%;
 $maxLight: 92%;
 $minLight: 20%;
 
-@function getColorset($hsl, $colorname) {
+@function getColorset($hsl, $colorname, $dm: 'false') {
   $hue: map.get($hsl, 'h');
   $sat: map.get($hsl, 's');
   $light: map.get($hsl, 'l');
@@ -54,21 +58,26 @@ $minLight: 20%;
   $lightLow: math.min($light, $minLight);
 
   $lightmap: (
-    '100': $lightUp,
-    '200': calc($light + ($lightUp - $light) * math.pow(0.75, 2)),
-    '300': calc($light + ($lightUp - $light) * math.pow(0.5, 2)),
-    '400': calc($light + ($lightUp - $light) * math.pow(0.25, 2)),
-    '500': $light,
-    '600': calc($light - ($light - $lightLow) * math.pow(0.25, 2)),
-    '700': calc($light - ($light - $lightLow) * math.pow(0.5, 2)),
-    '800': calc($light - ($light - $lightLow) * math.pow(0.75, 2)),
-    '900': $lightLow,
+    100: $lightUp,
+    200: calc($light + ($lightUp - $light) * math.pow(0.75, 2)),
+    300: calc($light + ($lightUp - $light) * math.pow(0.5, 2)),
+    400: calc($light + ($lightUp - $light) * math.pow(0.25, 2)),
+    500: $light,
+    600: calc($light - ($light - $lightLow) * math.pow(0.25, 2)),
+    700: calc($light - ($light - $lightLow) * math.pow(0.5, 2)),
+    800: calc($light - ($light - $lightLow) * math.pow(0.75, 2)),
+    900: $lightLow,
   );
 
   $colorset: ();
 
   @each $shadeKey, $shadeLight in $lightmap {
     $colorKey: #{'--theme-' + $colorname + '-' + $shadeKey};
+
+    // reverse keys if darkmode
+    @if $dm == 'true' {
+      // $colorKey: #{'--theme-' + $colorname + '-' + calc(1000 - $shadeKey)};
+    }
 
     $colorset: map.merge(
       $colorset,
@@ -79,4 +88,36 @@ $minLight: 20%;
   }
 
   @return $colorset;
+}
+
+// -----------
+
+@function getTheme($colors, $darkmode: 'false') {
+  $themeCssv: ();
+
+  @each $colorName, $hsl in $colors {
+    @if $colorName == 'primary' {
+      $primaryHue: map.get($hsl, 'h');
+
+      @each $neutralColorKey, $neutralColor in getNeutrals($primaryHue - 180, $darkmode) {
+        $themeCssv: map.merge(
+          $themeCssv,
+          (
+            $neutralColorKey: $neutralColor,
+          )
+        );
+      }
+    }
+
+    @each $colorKey, $colorVal in getColorset($hsl, $colorName, $darkmode) {
+      $themeCssv: map.merge(
+        $themeCssv,
+        (
+          $colorKey: $colorVal,
+        )
+      );
+    }
+  }
+
+  @return $themeCssv;
 }
