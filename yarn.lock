@@ -705,6 +705,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.17.16":
+  version: 4.17.16
+  resolution: "@types/lodash@npm:4.17.16"
+  checksum: 915618c5735b10007e0ed7d06fdce6b344f88fc721d492b189a69064bfd046d2382e1ba61d683eeb61cad60ca0286cd110e6fe0fa4ab2e99066a40478376831d
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^20":
   version: 20.17.25
   resolution: "@types/node@npm:20.17.25"
@@ -1497,7 +1504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"effector-react@npm:^23.3.0":
+"effector-react@npm:23.3.0":
   version: 23.3.0
   resolution: "effector-react@npm:23.3.0"
   dependencies:
@@ -1509,7 +1516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"effector@npm:^23.3.0":
+"effector@npm:23.3.0":
   version: 23.3.0
   resolution: "effector@npm:23.3.0"
   checksum: 9f9f340017d8e088c4bdab34366ff50a582016ab2e01a4707c1b1d192a6d8d26536458544b4390d0bf9d24a805b60252a647970cb5009666b3928f94296a7ba4
@@ -2834,6 +2841,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
+  languageName: node
+  linkType: hard
+
 "loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
@@ -3102,14 +3116,16 @@ __metadata:
   resolution: "nextjs-study@workspace:."
   dependencies:
     "@eslint/eslintrc": ^3
+    "@types/lodash": ^4.17.16
     "@types/node": ^20
     "@types/react": ^19
     "@types/react-dom": ^19
     classnames: 2.5.1
-    effector: ^23.3.0
-    effector-react: ^23.3.0
+    effector: 23.3.0
+    effector-react: 23.3.0
     eslint: ^9
     eslint-config-next: 15.2.3
+    lodash: ^4.17.21
     next: 15.2.3
     react: ^19.0.0
     react-dom: ^19.0.0
