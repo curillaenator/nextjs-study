@@ -1,6 +1,6 @@
 import { PropsWithChildren, FC } from 'react';
 
-import { Inter, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import cn from 'classnames';
 
 import { Header } from '../header';
@@ -8,7 +8,7 @@ import { Aside } from '../aside';
 
 import styles from './layout.module.scss';
 
-const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
+const inter = Geist({ variable: '--font-geist', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
