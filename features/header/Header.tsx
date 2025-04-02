@@ -3,6 +3,8 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 
+import { toggleMode } from '@/entities/app';
+
 import { Button } from '../button';
 
 import styles from './header.module.scss';
@@ -23,6 +25,10 @@ const Header: FC = () => {
           </Button>
         ))}
       </nav>
+
+      <div>
+        <Button onClick={() => toggleMode()}>Mode</Button>
+      </div>
     </header>
   );
 };

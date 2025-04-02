@@ -2,28 +2,28 @@
 
 $colors: (
   'blue': (
-    'h': 40,
-    's': 92,
-    'l': 57,
+    'h': 220,
+    's': 92%,
+    'l': 57%,
   ),
   'red': (
     'h': 4,
-    's': 100,
-    'l': 46,
+    's': 100%,
+    'l': 46%,
   ),
   'green': (
     'h': 94,
-    's': 92,
-    'l': 40,
+    's': 92%,
+    'l': 40%,
   ),
   'orange': (
     'h': 18,
-    's': 100,
-    'l': 54,
+    's': 100%,
+    'l': 54%,
   ),
 );
 
-$colorHue: 180;
+$colorHue: calc(220 - 180);
 
 @mixin light {
   @each $neutralColorKey, $neutralColor in utils.getNeutrals($colorHue) {

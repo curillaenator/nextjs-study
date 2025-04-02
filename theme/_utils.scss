@@ -39,3 +39,44 @@ $DARKEST_LIGHTNESS: 10%;
 
   @return $neutrals;
 }
+
+// ----------
+
+$maxLight: 92%;
+$minLight: 20%;
+
+@function getColorset($hsl, $colorname) {
+  $hue: map.get($hsl, 'h');
+  $sat: map.get($hsl, 's');
+  $light: map.get($hsl, 'l');
+
+  $lightUp: math.max($light, $maxLight);
+  $lightLow: math.min($light, $minLight);
+
+  $lightmap: (
+    '100': $lightUp,
+    '200': calc($light + ($lightUp - $light) * math.pow(0.75, 2)),
+    '300': calc($light + ($lightUp - $light) * math.pow(0.5, 2)),
+    '400': calc($light + ($lightUp - $light) * math.pow(0.25, 2)),
+    '500': $light,
+    '600': calc($light - ($light - $lightLow) * math.pow(0.25, 2)),
+    '700': calc($light - ($light - $lightLow) * math.pow(0.5, 2)),
+    '800': calc($light - ($light - $lightLow) * math.pow(0.75, 2)),
+    '900': $lightLow,
+  );
+
+  $colorset: ();
+
+  @each $shadeKey, $shadeLight in $lightmap {
+    $colorKey: #{'--theme-' + $colorname + '-' + $shadeKey};
+
+    $colorset: map.merge(
+      $colorset,
+      (
+        $colorKey: hsl($hue, $sat, $shadeLight),
+      )
+    );
+  }
+
+  @return $colorset;
+}
