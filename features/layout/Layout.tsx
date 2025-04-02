@@ -5,9 +5,7 @@ import { Inter, Geist_Mono } from 'next/font/google';
 import cn from 'classnames';
 
 import { Header } from '../header';
-import { Button } from '../button';
-
-import { TbLayoutSidebarLeftExpand, TbLayoutSidebarRightExpand } from 'react-icons/tb';
+import { Aside } from '../aside';
 
 import styles from './layout.module.scss';
 
@@ -21,15 +19,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <body className={cn(styles.body, inter.variable, geistMono.variable)}>
-      <aside
-        className={cn(styles.aside, {
-          [styles.aside_open]: isAside,
-        })}
-      >
-        <Button onClick={() => setIsAside((prev) => !prev)}>
-          {isAside ? <TbLayoutSidebarRightExpand /> : <TbLayoutSidebarLeftExpand />}
-        </Button>
-      </aside>
+      <Aside isAside={isAside} setIsAside={setIsAside} />
 
       <div className={styles.view}>
         <Header />

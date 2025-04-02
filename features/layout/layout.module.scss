@@ -25,27 +25,6 @@
   }
 }
 
-$asideMin: 88px;
-$asideMax: 384px;
-
-.aside {
-  flex: 0 0 auto;
-  padding: var(--layout-pd);
-
-  width: $asideMin;
-
-  min-height: 100vh;
-  max-height: 100vh;
-
-  transition: width 200ms ease;
-
-  background-color: var(--theme-neutral-200);
-
-  &_open {
-    width: $asideMax;
-  }
-}
-
 .view {
   display: flex;
   flex-direction: column;
