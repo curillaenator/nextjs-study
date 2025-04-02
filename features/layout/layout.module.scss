@@ -1,5 +1,9 @@
 @use '../../theme/colors' as theme;
 
+@mixin layoutSizes {
+  --layout-pd: 24px;
+}
+
 .body {
   display: flex;
   align-items: flex-start;
@@ -13,6 +17,7 @@
   //   @include theme.dark;
   // }
 
+  @include layoutSizes;
   @include theme.light;
 
   @media (prefers-color-scheme: dark) {
@@ -25,6 +30,7 @@ $asideMax: 384px;
 
 .aside {
   flex: 0 0 auto;
+  padding: var(--layout-pd);
 
   width: $asideMin;
 
@@ -33,7 +39,7 @@ $asideMax: 384px;
 
   transition: width 200ms ease;
 
-  background-color: var(--neutral-200);
+  background-color: var(--theme-neutral-200);
 
   &_open {
     width: $asideMax;
@@ -41,6 +47,39 @@ $asideMax: 384px;
 }
 
 .view {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
+  height: 100vh;
   flex: 1 1 auto;
+
+  main {
+    padding: var(--layout-pd);
+
+    max-height: 100%;
+    flex: 1 1 auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+
+      &-thumb {
+        cursor: pointer;
+
+        border-radius: 2px;
+        background-color: var(--eds-bgc-accent-56);
+
+        &:hover {
+          background-color: var(--eds-bgc-accent);
+        }
+      }
+
+      &-track {
+        border-radius: 2px;
+        background-color: var(--eds-bdc-intence);
+        margin: 0 8px;
+      }
+    }
+  }
 }

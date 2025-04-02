@@ -22,11 +22,11 @@ $DARKEST_LIGHTNESS: 10%;
   @each $stepKey, $stepVal in $steps {
     $light: calc((math.percentage(math.pow($stepVal, 2)) * $SQUARE_SPREAD_REDUCTOR) + $DARKEST_LIGHTNESS);
 
-    $neutralKey: #{'--neutral-' + $stepKey};
+    $neutralKey: #{'--theme-neutral-' + $stepKey};
 
     // reverse keys if darkmode
     @if $dm == 'true' {
-      $neutralKey: #{'--neutral-' + calc(1000 - $stepKey)};
+      $neutralKey: #{'--theme-neutral-' + calc(1000 - $stepKey)};
     }
 
     $neutrals: map.merge(

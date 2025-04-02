@@ -23,7 +23,7 @@ $colors: (
   ),
 );
 
-$colorHue: 4;
+$colorHue: 180;
 
 @mixin light {
   @each $neutralColorKey, $neutralColor in utils.getNeutrals($colorHue) {

@@ -1,0 +1,43 @@
+@use '../../theme/sizes' as sizes;
+
+.button {
+  height: var(--component-h);
+  padding: var(--component-pd);
+  border-radius: var(--component-bdrs);
+
+  background-color: var(--theme-neutral-400);
+
+  font-family: var(--font-inter);
+  font-size: var(--component-fz);
+  line-height: var(--component-lh);
+  color: var(--theme-neutral-900);
+
+  border: none;
+  outline: none;
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--theme-neutral-500);
+    }
+
+    &:active {
+      background-color: var(--theme-neutral-300);
+    }
+  }
+
+  & > svg {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+  }
+
+  @each $sizeName, $vals in sizes.$sizes {
+    &_#{'' + $sizeName} {
+      @each $prop, $v in $vals {
+        --component-#{'' + $prop}: #{$v};
+      }
+    }
+  }
+}

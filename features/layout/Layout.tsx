@@ -1,9 +1,13 @@
 'use client';
+
 import { useState, PropsWithChildren, FC } from 'react';
 import { Inter, Geist_Mono } from 'next/font/google';
 import cn from 'classnames';
 
 import { Header } from '../header';
+import { Button } from '../button';
+
+import { TbLayoutSidebarLeftExpand, TbLayoutSidebarRightExpand } from 'react-icons/tb';
 
 import styles from './layout.module.scss';
 
@@ -22,11 +26,14 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
           [styles.aside_open]: isAside,
         })}
       >
-        <button onClick={() => setIsAside((prev) => !prev)}>Aside</button>
+        <Button onClick={() => setIsAside((prev) => !prev)}>
+          {isAside ? <TbLayoutSidebarRightExpand /> : <TbLayoutSidebarLeftExpand />}
+        </Button>
       </aside>
 
       <div className={styles.view}>
         <Header />
+
         <main>{children}</main>
       </div>
     </body>

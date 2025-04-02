@@ -1,6 +1,5 @@
 .blog {
   width: 100%;
-  padding: 24px;
 
   .title {
     margin-bottom: 32px;
@@ -10,6 +9,16 @@
 .list {
   // list-style: none;
   padding-left: 32px;
+
+  & > li {
+    &:hover {
+      color: var(--theme-neutral-800);
+    }
+
+    &:active {
+      color: var(--theme-neutral-700);
+    }
+  }
 }
 
 .loader {

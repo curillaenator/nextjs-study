@@ -714,7 +714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19":
+"@types/react-dom@npm:19":
   version: 19.0.4
   resolution: "@types/react-dom@npm:19.0.4"
   peerDependencies:
@@ -723,7 +723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19":
+"@types/react@npm:19":
   version: 19.0.12
   resolution: "@types/react@npm:19.0.12"
   dependencies:
@@ -1865,7 +1865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9":
+"eslint@npm:9":
   version: 9.23.0
   resolution: "eslint@npm:9.23.0"
   dependencies:
@@ -3084,16 +3084,17 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": ^3
     "@types/node": ^20
-    "@types/react": ^19
-    "@types/react-dom": ^19
+    "@types/react": 19
+    "@types/react-dom": 19
     classnames: 2.5.1
-    eslint: ^9
+    eslint: 9
     eslint-config-next: 15.2.3
     next: 15.2.3
-    react: ^19.0.0
-    react-dom: ^19.0.0
-    sass: ^1.86.0
-    typescript: ^5
+    react: 19.0.0
+    react-dom: 19.0.0
+    react-icons: 5.5.0
+    sass: 1.86.0
+    typescript: 5
   languageName: unknown
   linkType: soft
 
@@ -3404,7 +3405,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.0.0":
+"react-dom@npm:19.0.0":
   version: 19.0.0
   resolution: "react-dom@npm:19.0.0"
   dependencies:
@@ -3415,6 +3416,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-icons@npm:5.5.0":
+  version: 5.5.0
+  resolution: "react-icons@npm:5.5.0"
+  peerDependencies:
+    react: "*"
+  checksum: cbd74f4b7982e6e18d59798a6b578268c8eb0909d78d87bcf9b25f99b3e544fd189a76551cb5e770d17f154a60b668551aee108aaf8471309b23f7af3b2c5b07
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -3422,7 +3432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.0.0":
+"react@npm:19.0.0":
   version: 19.0.0
   resolution: "react@npm:19.0.0"
   checksum: 86de15d85b2465feb40297a90319c325cb07cf27191a361d47bcfe8c6126c973d660125aa67b8f4cbbe39f15a2f32efd0c814e98196d8e5b68c567ba40a399c6
@@ -3649,7 +3659,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.86.0":
+"sass@npm:1.86.0":
   version: 1.86.0
   resolution: "sass@npm:1.86.0"
   dependencies:
@@ -4231,7 +4241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5":
+"typescript@npm:5":
   version: 5.8.2
   resolution: "typescript@npm:5.8.2"
   bin:
@@ -4241,7 +4251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^5#~builtin<compat/typescript>":
+"typescript@patch:typescript@5#~builtin<compat/typescript>":
   version: 5.8.2
   resolution: "typescript@patch:typescript@npm%3A5.8.2#~builtin<compat/typescript>::version=5.8.2&hash=5da071"
   bin:
