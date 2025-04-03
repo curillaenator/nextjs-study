@@ -23,7 +23,7 @@ export default async function Blog() {
 
   return (
     <ul key='list-123' className={styles.list}>
-      {posts.map(({ id, title, content }: JSONPlaceholderPost, idx) => (
+      {posts.map(({ id, title, content }: JSONPlaceholderPost) => (
         <li key={title.concat(`${id}`)}>
           <Link href={`/blog/${id}`}>{title}</Link>
         </li>
