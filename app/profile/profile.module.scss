@@ -1,0 +1,20 @@
+.profile {
+  display: flex;
+  width: 100%;
+  gap: 8;
+
+  & > img {
+    flex: 0 0 auto;
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+    border-radius: 50%;
+  }
+
+  .meta {
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 24px;
+  }
+}

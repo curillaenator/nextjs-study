@@ -15,10 +15,10 @@ const getInits = (fullName: string | null) => {
 };
 
 const Avatar: FC<AvatarProps> = (props) => {
-  const { src, alt, username, size = 'medium', onClick } = props;
+  const { src, alt, username, size = 'medium', component, href } = props;
 
-  const Wrapper = (!!onClick ? 'button' : 'div') as React.ElementType;
-  const wrapperProps = !!onClick ? { type: 'button', onClick } : {};
+  const Wrapper = (!!component ? component : 'div') as React.ElementType;
+  const wrapperProps = !!component ? { href } : {};
 
   return (
     <Wrapper {...wrapperProps} className={cn(styles.wrapper, styles[`wrapper_${size}`])}>

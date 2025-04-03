@@ -2,6 +2,7 @@
 
 import React, { FC } from 'react';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 import { toggleMode } from '@/entities/app';
 
@@ -17,7 +18,14 @@ const Buttons: FC = () => {
     <div className={styles.buttons}>
       <Button onClick={() => toggleMode()}>Mode</Button>
 
-      {!!session?.data && <Avatar username={session.data.user?.name || null} src={session.data.user?.image} />}
+      {!!session?.data && (
+        <Avatar
+          component={Link}
+          href='/profile'
+          username={session.data.user?.name || null}
+          src={session.data.user?.image}
+        />
+      )}
     </div>
   );
 };

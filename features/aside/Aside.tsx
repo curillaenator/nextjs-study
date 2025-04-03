@@ -24,8 +24,8 @@ import styles from './aside.module.scss';
 
 const NAV = [
   { title: 'Home', href: '/', Icon: TbHome },
-  { title: 'About', href: '/about', Icon: TbInfoHexagon },
   { title: 'Blog', href: '/blog', Icon: TbDog },
+  { title: 'My profile', href: '/profile', Icon: TbInfoHexagon },
 ];
 
 const isActive = (route: string, pathname: string) => {

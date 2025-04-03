@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { ComponentSize } from '@/theme';
 
 interface AvatarProps {
@@ -5,7 +6,8 @@ interface AvatarProps {
   alt?: string;
   username: string | null;
   size?: ComponentSize;
-  onClick?: () => void;
+  component?: typeof Link;
+  href?: string;
 }
 
 export type { AvatarProps };
