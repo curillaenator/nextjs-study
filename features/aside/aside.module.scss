@@ -2,6 +2,9 @@ $asideMin: 88px;
 $asideMax: 384px;
 
 .aside {
+  display: flex;
+  flex-direction: column;
+
   flex: 0 0 auto;
 
   width: $asideMin;
@@ -18,8 +21,37 @@ $asideMax: 384px;
     width: $asideMax;
   }
 
-  & > header {
+  & > header,
+  & > footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex: 0 0 auto;
     padding: var(--layout-pd);
+  }
+
+  & > header {
     border-bottom: 1px solid var(--theme-neutral-400);
   }
+
+  & > footer {
+    border-top: 1px solid var(--theme-neutral-400);
+  }
+
+  & > nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: var(--layout-pd);
+
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  overflow: hidden;
 }

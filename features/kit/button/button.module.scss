@@ -1,7 +1,12 @@
-@use '../../theme/appearances' as appearances;
-@use '../../theme/sizes' as sizes;
+@use '../../../theme/appearances' as appearances;
+@use '../../../theme/sizes' as sizes;
 
 .button {
+  flex: 0 0 auto;
+  display: flex;
+  gap: var(--component-gap);
+
+  width: fit-content;
   height: var(--component-h);
   padding: var(--component-pd);
   border-radius: var(--component-bdrs);
@@ -15,10 +20,18 @@
 
   border: none;
   outline: none;
+  overflow: hidden;
+
+  &_active {
+    background-color: var(--component-bgc-p);
+    color: var(--component-text-p);
+  }
 
   &:not(:disabled) {
     cursor: pointer;
+  }
 
+  &:not(:disabled):not(.button_active) {
     &:hover {
       background-color: var(--component-bgc-h);
     }
@@ -26,6 +39,10 @@
     &:active {
       background-color: var(--component-bgc-a);
     }
+  }
+
+  &_fullwidth {
+    width: 100%;
   }
 
   & > svg {
