@@ -13,6 +13,7 @@ interface ButtonProps extends PropsWithChildren<HTMLAttributes<HTMLButtonElement
 
   component?: typeof Link;
   href?: string;
+  type?: 'submit' | 'button';
 }
 
 export type { ButtonProps };

@@ -77,7 +77,8 @@ const Aside: FC = () => {
       <footer>
         <Button
           component={Link}
-          href={session?.data ? '#' : '/api/auth/signin'}
+          // href={session?.data ? '#' : '/api/auth/signin'}
+          href={session?.data ? '#' : '/signin'}
           fullwidth
           children={
             session?.data ? (

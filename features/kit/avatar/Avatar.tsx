@@ -10,7 +10,7 @@ const getInits = (fullName: string | null) => {
   return fullName
     .split(' ')
     .slice(0, 2)
-    .map((char) => char.toUpperCase())
+    .map((char) => char.slice(0, 1).toUpperCase())
     .join('');
 };
 
