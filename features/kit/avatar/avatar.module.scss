@@ -1,0 +1,38 @@
+@use '../../../theme/sizes' as sizes;
+
+.wrapper {
+  flex: 0 0 auto;
+  width: var(--component-h);
+  height: var(--component-h);
+
+  border: none;
+  outline: none;
+
+  background-color: var(--theme-primary-500);
+  border-radius: 50%;
+
+  @each $size, $values in sizes.$sizes {
+    &_#{'' + $size} {
+      @each $prop, $v in $values {
+        --component-#{'' + $prop}: #{$v};
+      }
+    }
+  }
+}
+
+.avatarImage {
+  width: var(--component-h);
+  height: var(--component-h);
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarInits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--component-h);
+  height: var(--component-h);
+  border-radius: 50%;
+  color: var(--theme-white);
+}

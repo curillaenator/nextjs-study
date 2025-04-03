@@ -1,3 +1,7 @@
+@mixin hexhsl {
+  --ocean: hsl(215, 21%, 11%);
+}
+
 $default: (
   'primary': (
     'h': 216,

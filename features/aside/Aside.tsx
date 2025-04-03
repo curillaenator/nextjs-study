@@ -4,9 +4,18 @@ import React, { FC } from 'react';
 import { useUnit } from 'effector-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession, signOut } from 'next-auth/react';
 import cn from 'classnames';
 
-import { TbLayoutSidebarLeftExpand, TbLayoutSidebarRightExpand, TbHome, TbInfoHexagon, TbDog } from 'react-icons/tb';
+import {
+  TbLayoutSidebarLeftExpand,
+  TbLayoutSidebarRightExpand,
+  TbHome,
+  TbInfoHexagon,
+  TbDog,
+  TbLogin,
+  TbLogout,
+} from 'react-icons/tb';
 
 import { $appStore, toggleAside } from '@/entities/app';
 import { Button } from '@/features/kit/button';
@@ -28,6 +37,9 @@ const Aside: FC = () => {
   const { isAsideOpen } = useUnit($appStore);
 
   const pathname = usePathname();
+  const session = useSession();
+
+  console.log('Aside', session);
 
   return (
     <aside
@@ -55,14 +67,34 @@ const Aside: FC = () => {
             active={isActive(href, pathname)}
             children={
               <>
-                <Icon /> {isAsideOpen ? title : ''}
+                <Icon /> {title}
               </>
             }
           />
         ))}
       </nav>
 
-      <footer></footer>
+      <footer>
+        <Button
+          component={Link}
+          href={session?.data ? '#' : '/api/auth/signin'}
+          fullwidth
+          children={
+            session?.data ? (
+              <>
+                <TbLogout /> {'Sign out'}
+              </>
+            ) : (
+              <>
+                <TbLogin /> {'Sign in'}
+              </>
+            )
+          }
+          onClick={() => {
+            if (session?.data) signOut({ callbackUrl: '/' });
+          }}
+        />
+      </footer>
     </aside>
   );
 };

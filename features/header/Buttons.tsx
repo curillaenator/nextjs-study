@@ -1,17 +1,23 @@
 'use client';
 
 import React, { FC } from 'react';
+import { useSession } from 'next-auth/react';
 
 import { toggleMode } from '@/entities/app';
 
+import { Avatar } from '../kit/avatar';
 import { Button } from '../kit/button';
 
 import styles from './header.module.scss';
 
 const Buttons: FC = () => {
+  const session = useSession();
+
   return (
     <div className={styles.buttons}>
       <Button onClick={() => toggleMode()}>Mode</Button>
+
+      {!!session?.data && <Avatar username={session.data.user?.name || null} src={session.data.user?.image} />}
     </div>
   );
 };

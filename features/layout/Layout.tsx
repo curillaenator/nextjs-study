@@ -8,6 +8,7 @@ import cn from 'classnames';
 
 import { $appStore } from '@/entities/app';
 
+import { Providers } from '../providers';
 import { Header } from '../header';
 import { Aside } from '../aside';
 
@@ -26,13 +27,15 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         [styles[`body_${darkmode ? 'dark' : 'light'}`]]: darkmode !== undefined,
       })}
     >
-      <Aside />
+      <Providers>
+        <Aside />
 
-      <div className={styles.view}>
-        <Header />
+        <div className={styles.view}>
+          <Header />
 
-        <main>{children}</main>
-      </div>
+          <main>{children}</main>
+        </div>
+      </Providers>
     </body>
   );
 };

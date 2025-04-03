@@ -17,10 +17,10 @@ $SQUARE_SPREAD_REDUCTOR: 0.9;
 $DARKEST_LIGHTNESS: 10%;
 
 @function getNeutrals($hue, $dm: 'false') {
-  $sat: 8%;
+  $sat: 12%;
 
   @if $dm == 'true' {
-    $sat: 4%;
+    $sat: 24%;
   }
 
   $neutrals: ();
