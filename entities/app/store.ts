@@ -5,7 +5,7 @@ const toggleAside = createEvent<boolean | undefined>();
 const toggleMode = createEvent<boolean | undefined>();
 
 const $appStore = createStore<AppStore>({
-  isAsideOpen: false,
+  isAsideOpen: true,
   darkmode: undefined,
 });
 

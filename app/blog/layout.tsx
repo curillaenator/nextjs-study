@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { keys } from 'lodash';
 
-import { Button } from '@/features/kit/button';
+import { Button } from '@/kit/button';
 
 import styles from './blog.module.scss';
 

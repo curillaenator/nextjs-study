@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 import { toggleMode } from '@/entities/app';
 
-import { Avatar } from '../kit/avatar';
-import { Button } from '../kit/button';
+import { Avatar } from '@/kit/avatar';
+import { Button } from '@/kit/button';
 
 import styles from './header.module.scss';
 

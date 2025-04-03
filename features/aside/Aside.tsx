@@ -18,7 +18,7 @@ import {
 } from 'react-icons/tb';
 
 import { $appStore, toggleAside } from '@/entities/app';
-import { Button } from '@/features/kit/button';
+import { Button } from '@/kit/button';
 
 import styles from './aside.module.scss';
 

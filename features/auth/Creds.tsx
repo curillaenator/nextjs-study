@@ -5,7 +5,8 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { TbLogin } from 'react-icons/tb';
 
-import { Button } from '@/features/kit/button';
+import { Button } from '@/kit/button';
+import { Input } from '@/kit/input';
 
 import styles from './creds.module.scss';
 
@@ -40,24 +41,9 @@ export const CredsAuth: FC = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <input
-        //
-        ref={emailInputRef}
-        type='email'
-        name='email'
-        required
-        placeholder='email'
-        autoComplete='off'
-      />
+      <Input type='email' name='email' required placeholder='email' autoComplete='off' />
 
-      <input
-        ref={passwordInputRef}
-        type='password'
-        name='password'
-        required
-        placeholder='password'
-        autoComplete='off'
-      />
+      <Input type='password' name='password' required placeholder='password' />
 
       <Button type='submit' appearance='primary'>
         <TbLogin /> Sign in with creds
