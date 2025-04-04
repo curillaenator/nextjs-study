@@ -5,7 +5,7 @@
   text-decoration: none;
 
   width: 100%;
-  background-color: var(--theme-neutral-300);
+  background-color: var(--theme-neutral-200);
   border-radius: 8px;
   padding: var(--layout-pd);
 
@@ -16,12 +16,12 @@
   }
 
   &:hover {
-    background-color: var(--theme-neutral-400);
+    background-color: var(--theme-neutral-300);
     transform: scale(1.02);
   }
 
   &:active {
-    background-color: var(--theme-neutral-300);
+    background-color: var(--theme-neutral-200);
     transform: scale(1);
   }
 }

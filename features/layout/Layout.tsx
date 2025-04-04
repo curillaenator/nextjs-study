@@ -33,7 +33,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         <div className={styles.view}>
           <Header />
 
-          <main>{children}</main>
+          <main className={styles.main}>{children}</main>
         </div>
       </Providers>
     </body>

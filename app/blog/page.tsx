@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { getPostList } from '@/entities/post';
 import { MasonryPosts } from '@/features/post';
 
-import styles from './page.module.scss';
+const revalidate = 30;
 
 const metadata: Metadata = {
   title: 'Blog',
@@ -13,12 +13,8 @@ const metadata: Metadata = {
 async function Blog() {
   const posts = await getPostList();
 
-  return (
-    <div className={styles.page}>
-      <MasonryPosts posts={posts} />
-    </div>
-  );
+  return <MasonryPosts posts={posts} />;
 }
 
 export default Blog;
-export { metadata };
+export { revalidate, metadata };

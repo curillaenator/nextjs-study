@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const isBlogroot = !!keys(useParams()).length;
 
   return (
-    <div className={styles.blog}>
+    <div className={styles.page}>
       {isBlogroot && (
         <header className={styles.header}>
           <Button onClick={() => router.back()}>Back</Button>
