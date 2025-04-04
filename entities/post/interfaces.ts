@@ -1,4 +1,4 @@
-interface JSONPlaceholderPost {
+interface PostContent {
   id: number;
   title: string;
   content: string;
@@ -7,4 +7,4 @@ interface JSONPlaceholderPost {
   category: string;
 }
 
-export type { JSONPlaceholderPost };
+export type { PostContent };

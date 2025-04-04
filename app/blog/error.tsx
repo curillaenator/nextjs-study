@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './blog.module.scss';
+import styles from './page.module.scss';
 
 export default function ErrorWrapper({ error }: { error: Error }) {
   return (

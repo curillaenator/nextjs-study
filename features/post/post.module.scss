@@ -1,0 +1,27 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+
+  width: 100%;
+  background-color: var(--theme-neutral-300);
+  border-radius: 8px;
+  padding: var(--layout-pd);
+
+  transition: transform 200ms ease;
+
+  p[data-meta] {
+    color: var(--theme-neutral-700);
+  }
+
+  &:hover {
+    background-color: var(--theme-neutral-400);
+    transform: scale(1.02);
+  }
+
+  &:active {
+    background-color: var(--theme-neutral-300);
+    transform: scale(1);
+  }
+}

@@ -1,4 +1,5 @@
 'use client';
+
 import React, { FC, InputHTMLAttributes, useEffect, useRef } from 'react';
 
 import styles from './input.module.scss';

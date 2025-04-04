@@ -6,7 +6,7 @@ import { keys } from 'lodash';
 
 import { Button } from '@/kit/button';
 
-import styles from './blog.module.scss';
+import styles from './page.module.scss';
 
 export default ({ children }: { children: ReactNode }) => {
   const router = useRouter();

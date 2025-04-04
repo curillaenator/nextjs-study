@@ -51,11 +51,16 @@
   height: 100vh;
   flex: 1 1 auto;
 
+  overflow: hidden;
+
   main {
     padding: var(--layout-pd);
 
-    max-height: 100%;
+    max-height: calc(100% - 89px);
     flex: 1 1 auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 
     &::-webkit-scrollbar {
       width: 4px;
@@ -65,16 +70,16 @@
         cursor: pointer;
 
         border-radius: 2px;
-        background-color: var(--eds-bgc-accent-56);
+        background-color: var(--theme-neutral-400);
 
         &:hover {
-          background-color: var(--eds-bgc-accent);
+          background-color: var(--theme-primary-500);
         }
       }
 
       &-track {
         border-radius: 2px;
-        background-color: var(--eds-bdc-intence);
+        background-color: var(--theme-neutral-200);
         margin: 0 8px;
       }
     }

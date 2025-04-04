@@ -39,8 +39,6 @@ const Aside: FC = () => {
   const pathname = usePathname();
   const session = useSession();
 
-  console.log('Aside', session);
-
   return (
     <aside
       className={cn(styles.aside, {
