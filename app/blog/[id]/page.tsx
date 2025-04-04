@@ -1,8 +1,10 @@
+// import { PagesOptions } from 'next-auth';
+
 import { getPostData } from '@/entities/post';
 import styles from '../page.module.scss';
 
 interface ItemPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 async function BlogItemPage({ params }: ItemPageProps) {

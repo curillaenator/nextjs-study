@@ -14,7 +14,8 @@ export default async function Profile() {
 
   return (
     <div className={styles.profile}>
-      {session?.user?.image && <img src={session.user.image} />}
+      {/* eslint-disable-nest-line @next/next/no-img-element */}
+      {session?.user?.image && <img src={session.user.image} alt={session.user.name!} />}
 
       <div className={styles.meta}>
         <h1>{session?.user?.name || 'N/A'}</h1>

@@ -8,7 +8,7 @@ import { Button } from '@/kit/button';
 
 import styles from './page.module.scss';
 
-export default ({ children }: { children: ReactNode }) => {
+export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   const isBlogroot = !!keys(useParams()).length;
@@ -24,4 +24,4 @@ export default ({ children }: { children: ReactNode }) => {
       {children}
     </div>
   );
-};
+}

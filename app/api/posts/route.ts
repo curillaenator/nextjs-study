@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { headers, cookies } from 'next/headers';
+// import { headers, cookies } from 'next/headers';
 
 const getFake = (q: string) =>
   new Promise<string>((res) => {
@@ -10,12 +10,12 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const q = searchParams.get('q');
 
-  const cooList = await cookies();
-  const headersList = await headers();
+  // const cooList = await cookies();
+  // const headersList = await headers();
 
   // const coo2 =  cooList
 
-  console.log('COOKIES', cooList);
+  // console.log('COOKIES', cooList);
 
   if (!q) return NextResponse.json({ message: 'Param "q" not provided' });
 
