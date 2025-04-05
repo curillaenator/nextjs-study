@@ -8,14 +8,16 @@ $asideMax: 384px;
   flex: 0 0 auto;
 
   width: $asideMin;
-
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100vh;
 
   transition: width 200ms ease;
 
-  background-color: var(--theme-neutral-200);
   border-right: 1px solid var(--theme-neutral-300);
+
+  background: no-repeat url('./assets/asideTexture.png'), var(--layout-aside-bgc);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: var(--layout-aside-bgc-blend-mode, overlay);
 
   &_open {
     width: $asideMax;

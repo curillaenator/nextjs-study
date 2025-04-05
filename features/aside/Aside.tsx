@@ -19,6 +19,7 @@ import {
 
 import { $appStore, toggleAside } from '@/entities/app';
 import { Button } from '@/kit/button';
+import type { ComponentAppearance } from '@/theme/interfaces';
 
 import styles from './aside.module.scss';
 
@@ -34,14 +35,16 @@ const isActive = (route: string, pathname: string) => {
 };
 
 const Aside: FC = () => {
-  const { isAsideOpen } = useUnit($appStore);
+  const { isAsideOpen, darkmode } = useUnit($appStore);
 
   const pathname = usePathname();
   const session = useSession();
 
+  const buttonAppearance: ComponentAppearance = darkmode ? 'secondary' : 'secondary-alt';
+
   return (
     <aside
-      className={cn(styles.aside, {
+      className={cn(styles.aside, styles[`aside_${darkmode ? 'dark' : 'light'}`], {
         [styles.aside_open]: isAsideOpen,
       })}
     >
@@ -50,7 +53,7 @@ const Aside: FC = () => {
           <h1>NextJS</h1>
         </div>
 
-        <Button onClick={() => toggleAside()}>
+        <Button onClick={() => toggleAside()} appearance={buttonAppearance}>
           {isAsideOpen ? <TbLayoutSidebarRightExpand /> : <TbLayoutSidebarLeftExpand />}
         </Button>
       </header>
@@ -63,6 +66,7 @@ const Aside: FC = () => {
             href={href}
             fullwidth
             active={isActive(href, pathname)}
+            appearance={buttonAppearance}
             children={
               <>
                 <Icon /> {title}
@@ -78,6 +82,7 @@ const Aside: FC = () => {
           // href={session?.data ? '#' : '/api/auth/signin'}
           href={session?.data ? '#' : '/signin'}
           fullwidth
+          appearance={buttonAppearance}
           children={
             session?.data ? (
               <>

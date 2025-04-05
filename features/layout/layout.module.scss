@@ -1,30 +1,40 @@
 @use '../../theme/colors' as colors;
 @use '../../theme/utils' as utils;
 
-@mixin layoutSizes {
-  --layout-pd: 24px;
+@mixin staticColors {
+  --theme-white: hsl(0, 0%, 100%);
 }
 
 @mixin light {
+  --layout-aside-bdc: var(--theme-neutral-300);
+
+  --layout-aside-bgc: var(--theme-neutral-200);
+  --layout-aside-bgc-blend-mode: soft-light;
+
   @each $cssv, $val in utils.getTheme(colors.$default) {
     #{'' + $cssv}: #{$val};
   }
 }
 
 @mixin dark {
+  --layout-aside-bdc: var(--theme-neutral-300);
+
+  --layout-aside-bgc: var(--theme-neutral-300);
+  --layout-aside-bgc-blend-mode: overlay;
+
   @each $cssv, $val in utils.getTheme(colors.$default, 'true') {
     #{'' + $cssv}: #{$val};
   }
 }
 
 .body {
-  --theme-white: hsl(0, 0%, 100%);
-
-  @include layoutSizes;
+  --layout-pd: 24px;
 
   display: flex;
   align-items: flex-start;
   max-width: 100vw;
+
+  @include staticColors;
 
   &_light {
     @include light;

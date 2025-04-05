@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'About App',
   description: 'Description',
 };
@@ -14,3 +14,4 @@ function About() {
 }
 
 export default About;
+export { metadata };
