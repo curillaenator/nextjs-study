@@ -17,7 +17,7 @@ const Post: FC<PostContent> = (props) => {
         {author} {date}
       </p>
 
-      <p>{CONTENTS[id] || content}</p>
+      <p>{content.concat(CONTENTS[id] || '')}</p>
     </Link>
   );
 };

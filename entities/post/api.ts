@@ -1,7 +1,9 @@
 import type { PostContent } from './interfaces';
 
+const POSTS_ENDPOINT = 'http://localhost:4000/posts';
+
 const getPostList = async () => {
-  const data = await fetch('https://api.vercel.app/blog', {
+  const data = await fetch(POSTS_ENDPOINT, {
     next: { revalidate: 60 },
   });
 
@@ -9,7 +11,7 @@ const getPostList = async () => {
 };
 
 const getPostData = async (id: number) => {
-  const data = await fetch(`https://api.vercel.app/blog/${id}`, {
+  const data = await fetch(`${POSTS_ENDPOINT}/${id}`, {
     next: { revalidate: 60 },
   });
 
