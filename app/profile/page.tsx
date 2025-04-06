@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getServerSession } from 'next-auth';
 
 import { authCfg } from '@/configs/auth';
@@ -14,8 +15,7 @@ export default async function Profile() {
 
   return (
     <div className={styles.profile}>
-      {/* eslint-disable-nest-line @next/next/no-img-element */}
-      {session?.user?.image && <img src={session.user.image} alt={session.user.name!} />}
+      {session?.user?.image && <Image src={session.user.image} alt={session.user.name!} width={200} height={200} />}
 
       <div className={styles.meta}>
         <h1>{session?.user?.name || 'N/A'}</h1>
