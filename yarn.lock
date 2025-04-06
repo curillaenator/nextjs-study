@@ -1694,6 +1694,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:4.1.0":
+  version: 4.1.0
+  resolution: "date-fns@npm:4.1.0"
+  checksum: fb681b242cccabed45494468f64282a7d375ea970e0adbcc5dcc92dcb7aba49b2081c2c9739d41bf71ce89ed68dd73bebfe06ca35129490704775d091895710b
+  languageName: node
+  linkType: hard
+
 "dayjs@npm:^1.11.13":
   version: 1.11.13
   resolution: "dayjs@npm:1.11.13"
@@ -3758,6 +3765,7 @@ __metadata:
     "@types/react-dom": 19.1.0
     classnames: 2.5.1
     concurrently: 9.1.2
+    date-fns: 4.1.0
     effector: 23.3.0
     effector-react: 23.3.0
     eslint: 9.23.0
@@ -3775,6 +3783,7 @@ __metadata:
     react-icons: 5.5.0
     sass: 1.86.2
     typescript: 5.8.2
+    uuid: 11.1.0
   languageName: unknown
   linkType: soft
 
@@ -5270,6 +5279,15 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   checksum: 5e639c9273200adb6985b512c96a3a02c458bc8ca1a72e91da9cdc6426144fc6538dca434b0f99b28fb1baabc82e1c383ba7900b25ccdcb43758fb058dc66c34
+  languageName: node
+  linkType: hard
+
+"uuid@npm:11.1.0":
+  version: 11.1.0
+  resolution: "uuid@npm:11.1.0"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 840f19758543c4631e58a29439e51b5b669d5f34b4dd2700b6a1d15c5708c7a6e0c3e2c8c4a2eae761a3a7caa7e9884d00c86c02622ba91137bd3deade6b4b4a
   languageName: node
   linkType: hard
 

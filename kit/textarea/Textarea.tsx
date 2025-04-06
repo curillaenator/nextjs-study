@@ -1,3 +1,5 @@
+'use client';
+
 import React, { forwardRef, useRef, useImperativeHandle } from 'react';
 import cn from 'classnames';
 
@@ -5,11 +7,11 @@ import type { TextareaProps } from './interfaces';
 import styles from './textarea.module.scss';
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => {
-  const { leftElement, rightElement, disabled, ...inputProps } = props;
+  const { leftElement, rightElement, disabled, ...rest } = props;
 
-  const inputInternalRef = useRef<HTMLTextAreaElement | null>(null);
+  const internalRef = useRef<HTMLTextAreaElement | null>(null);
 
-  useImperativeHandle(ref, () => inputInternalRef.current!, []);
+  useImperativeHandle(ref, () => internalRef.current!, []);
 
   return (
     <div
@@ -17,12 +19,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
         [styles.inputWrapper_db]: !!disabled,
       })}
       onClick={() => {
-        inputInternalRef.current?.focus();
+        internalRef.current?.focus();
       }}
     >
       {leftElement}
 
-      <textarea {...inputProps} ref={inputInternalRef} disabled={disabled} />
+      <textarea {...rest} ref={internalRef} disabled={disabled} />
 
       {rightElement}
     </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { forwardRef, useRef, useImperativeHandle } from 'react';
 import cn from 'classnames';
 
@@ -5,11 +7,11 @@ import type { InputProps } from './interfaces';
 import styles from './input.module.scss';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { leftElement, rightElement, disabled, ...inputProps } = props;
+  const { leftElement, rightElement, disabled, ...rest } = props;
 
-  const inputInternalRef = useRef<HTMLInputElement | null>(null);
+  const internalRef = useRef<HTMLInputElement | null>(null);
 
-  useImperativeHandle(ref, () => inputInternalRef.current!, []);
+  useImperativeHandle(ref, () => internalRef.current!, []);
 
   return (
     <div
@@ -17,12 +19,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         [styles.inputWrapper_db]: !!disabled,
       })}
       onClick={() => {
-        inputInternalRef.current?.focus();
+        internalRef.current?.focus();
       }}
     >
       {leftElement}
 
-      <input {...inputProps} ref={inputInternalRef} disabled={disabled} />
+      <input {...rest} ref={internalRef} disabled={disabled} />
 
       {rightElement}
     </div>

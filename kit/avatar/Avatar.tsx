@@ -29,8 +29,6 @@ const Avatar: FC<AvatarProps> = (props) => {
   const Wrapper = (!!component ? component : 'div') as React.ElementType;
   const wrapperProps = !!component ? { href } : {};
 
-  console.log(src);
-
   return (
     <Wrapper {...wrapperProps} className={cn(styles.wrapper, styles[`wrapper_${size}`])}>
       {src ? (

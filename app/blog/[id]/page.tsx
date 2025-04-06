@@ -9,7 +9,7 @@ interface ItemPageProps {
 
 async function BlogItemPage({ params }: ItemPageProps) {
   const { id } = await params;
-  const { title, content } = await getPostData(parseInt(id));
+  const { title, content } = await getPostData(id);
 
   return (
     <div className={styles.blog}>
@@ -21,7 +21,7 @@ async function BlogItemPage({ params }: ItemPageProps) {
 
 const generateMetadata = async ({ params }: ItemPageProps) => {
   const { id } = await params;
-  const { title } = await getPostData(parseInt(id));
+  const { title } = await getPostData(id);
 
   return { title };
 };

@@ -3,11 +3,10 @@ import type { Metadata } from 'next';
 import { getPostList } from '@/entities/post';
 import { MasonryPosts } from '@/features/post';
 
-const revalidate = 30;
+const revalidate = 10;
 
 const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Description',
+  title: 'Posts',
 };
 
 async function Blog() {
