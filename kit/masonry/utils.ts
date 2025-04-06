@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 // сортировщик элементов для вывода их в гриде с количеством колонок cols и формированием
 // столбцов флексбоксом с flex-direction: columns.
 

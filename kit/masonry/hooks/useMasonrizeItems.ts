@@ -12,9 +12,8 @@ export const useMasonrizeItems = (props: MasonryGridProps) => {
 
   const onSizeChange = useCallback(
     (element: Element) => {
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (masonryRef.current) {
-        masonryRef.current.style.setProperty('--mansonry-layout-gap', `${gap}px`); // eslint-disable-line @typescript-eslint/no-use-before-define
+        masonryRef.current.style.setProperty('--mansonry-layout-gap', `${gap}px`);
       }
 
       colsControl.current.update(element.clientWidth);

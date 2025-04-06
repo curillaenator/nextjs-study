@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 import { Input } from '@/kit/input';
@@ -12,10 +12,10 @@ import styles from './newpost.module.scss';
 const NewPostForm: FC = () => {
   const {
     control,
-    reset,
-    register,
+    // reset,
+    // register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    // formState: { errors, dirtyFields },
   } = useForm<PostContent>();
 
   return (

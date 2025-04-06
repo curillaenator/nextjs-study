@@ -1,8 +1,17 @@
 import React, { FC } from 'react';
+import Image from 'next/image';
 import cn from 'classnames';
+
+import { ComponentSize } from '@/theme/interfaces';
 
 import type { AvatarProps } from './interfaces';
 import styles from './avatar.module.scss';
+
+const SIZES_ASSOC: Record<ComponentSize, number> = {
+  small: 32,
+  medium: 40,
+  large: 48,
+};
 
 const getInits = (fullName: string | null) => {
   if (!fullName) return 'N/A';
@@ -20,10 +29,18 @@ const Avatar: FC<AvatarProps> = (props) => {
   const Wrapper = (!!component ? component : 'div') as React.ElementType;
   const wrapperProps = !!component ? { href } : {};
 
+  console.log(src);
+
   return (
     <Wrapper {...wrapperProps} className={cn(styles.wrapper, styles[`wrapper_${size}`])}>
       {src ? (
-        <img src={src} alt={alt} className={styles.avatarImage} />
+        <Image
+          src={src}
+          alt={alt || ''}
+          width={SIZES_ASSOC[size]}
+          height={SIZES_ASSOC[size]}
+          className={styles.avatarImage}
+        />
       ) : (
         <div className={styles.avatarInits}>{getInits(username)}</div>
       )}
