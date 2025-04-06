@@ -1,69 +1,76 @@
-'use client';
+'use server';
 
-import React, { FC } from 'react';
-// import { useForm, Controller } from 'react-hook-form';
+import React from 'react';
+import Link from 'next/link';
+import { getServerSession } from 'next-auth';
+
+import { redirect } from 'next/navigation';
+import { v4 as getId } from 'uuid';
+import { format } from 'date-fns';
 
 import { TbLabel, TbFileDescription } from 'react-icons/tb';
+import { MdOutlineArrowBack, MdOutlineCreate } from 'react-icons/md';
+
+import { type PostContent, createPost as dbCreatePost, POST_DATE_FORMAT } from '@/entities/post';
+import { authCfg } from '@/configs/auth';
 
 import { Input } from '@/kit/input';
 import { Textarea } from '@/kit/textarea';
 import { Button } from '@/kit/button';
 
-import { NewPostField } from './interfaces';
 import styles from './newpost.module.scss';
 
-const FIELDS: (NewPostField & { component: FC<NewPostField> })[] = [
-  {
-    name: 'title',
-    icon: <TbLabel />,
-    placeholder: 'Название поста',
-    component: ({ icon, ...field }: NewPostField) => (
-      <Input key={field.name} required autoComplete='off' leftElement={icon} {...field} />
-    ),
-  },
-  {
-    name: 'content',
-    icon: <TbFileDescription />,
-    placeholder: 'Тело поста',
-    component: ({ icon, ...field }: NewPostField) => (
-      <Textarea key={field.name} required autoComplete='off' leftElement={icon} rows={8} {...field} />
-    ),
-  },
-];
+async function createPost(formData: FormData) {
+  'use server';
 
-const NewPostForm: FC = () => {
-  // const {
-  //   control,
-  //   // reset,
-  //   // register,
-  //   handleSubmit,
-  //   // formState: { errors, dirtyFields },
-  // } = useForm<PostContent>();
+  const session = await getServerSession(authCfg);
+  const { user } = session || {};
 
+  const newPost: PostContent = {
+    id: getId(),
+    title: formData.get('title')?.toString() || '',
+    content: formData.get('content')?.toString() || '',
+    category: 'blah blah blah',
+    author: user?.name || '',
+    date: format(new Date(Date.now()), POST_DATE_FORMAT),
+  };
+
+  const post = await dbCreatePost(newPost);
+
+  redirect(`/blog/${post.id}`);
+}
+
+export default async function NewPostForm() {
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        console.log('formData', formData.get('title'), formData.get('content'));
-      }}
-    >
-      {FIELDS.map(({ component: Component, ...field }) => (
-        <Component key={field.name} {...field} />
-      ))}
+    <form className={styles.form} action={createPost}>
+      <Input name='title' required autoComplete='off' leftElement={<TbLabel />} placeholder='Название поста' />
+
+      <Textarea
+        name='content'
+        required
+        autoComplete='off'
+        leftElement={<TbFileDescription />}
+        rows={8}
+        placeholder='Тело поста'
+      />
 
       <div className={styles.buttons}>
-        <Button fullwidth centered appearance='primary' type='submit'>
-          Create new post
+        <Button appearance='primary' type='submit'>
+          <MdOutlineCreate /> Create new post
         </Button>
 
-        <Button fullwidth centered>
-          Cancel
+        <Button component={Link} href='/blog'>
+          <MdOutlineArrowBack /> Back
         </Button>
+
+        {/* {!!keys(errors).length && (
+          <div className={styles.errors}>
+            <span>{errors.title?.message || errors.content?.message || ''}</span>
+          </div>
+        )} */}
       </div>
     </form>
   );
-};
+}
 
 export { NewPostForm };
