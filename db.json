@@ -142,14 +142,6 @@
       "author": "Татьяна HR",
       "date": "2025-03-29",
       "category": "Карьера"
-    },
-    {
-      "id": "0754c71f-dedb-46cb-bcbf-66d58c197191",
-      "title": "Это новый пост",
-      "content": "Авторасширяющиеся textarea (например, с autosize)\r\nЕсли используешь что-то вроде react-textarea-autosize — тогда обязательно подключай через Controller, потому что это уже кастомный компонент.\r\n\r\nХочешь пример с react-textarea-autosize или кастомным <Textarea /> компонентом?\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nВы сказали:\r\nнет. \r\n\r\nнапомни как форматировать дату из timestamp в формат DD-MM-YYYY\r\n\r\n\r\nChatGPT сказал:\r\nКонечно! Если у тебя есть timestamp (в миллисекундах или секундах), и ты хочешь отформатировать дату в формат DD-MM-YYYY, вот несколько способов:\r\n\r\n✅ Вариант 1. Vanilla JS (без библиотек)",
-      "category": "blah blah blah",
-      "author": "Sabra One",
-      "date": "2025-04-06"
     }
   ]
 }

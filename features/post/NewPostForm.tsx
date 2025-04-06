@@ -62,12 +62,6 @@ export default async function NewPostForm() {
         <Button component={Link} href='/blog'>
           <MdOutlineArrowBack /> Back
         </Button>
-
-        {/* {!!keys(errors).length && (
-          <div className={styles.errors}>
-            <span>{errors.title?.message || errors.content?.message || ''}</span>
-          </div>
-        )} */}
       </div>
     </form>
   );
