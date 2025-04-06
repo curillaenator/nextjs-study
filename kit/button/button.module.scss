@@ -47,6 +47,10 @@
     width: 100%;
   }
 
+  &_centered {
+    justify-content: center;
+  }
+
   & > svg {
     width: 24px;
     height: 24px;

@@ -12,6 +12,7 @@ const Button: FC<ButtonProps> = (props) => {
     component,
     href,
     fullwidth,
+    centered,
     active,
     type = 'button',
     ...rest
@@ -26,6 +27,7 @@ const Button: FC<ButtonProps> = (props) => {
       {...compProps}
       className={cn(styles.button, styles[`button_${size}`], styles[`button_${appearance}`], {
         [styles.button_fullwidth]: !!fullwidth,
+        [styles.button_centered]: !!centered,
         [styles.button_active]: !!active,
       })}
     >

@@ -7,3 +7,12 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.buttons {
+  display: flex;
+  gap: 16px;
+
+  button {
+    flex: auto !important;
+  }
+}

@@ -10,6 +10,7 @@ interface ButtonProps extends PropsWithChildren<HTMLAttributes<HTMLButtonElement
   active?: boolean;
   disabled?: boolean;
   fullwidth?: boolean;
+  centered?: boolean;
 
   component?: typeof Link;
   href?: string;
