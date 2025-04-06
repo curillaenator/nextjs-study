@@ -1,9 +1,10 @@
-import type { NextAuthOptions, User as NextUser } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredsProvider from 'next-auth/providers/credentials';
 import { omit } from 'lodash';
 
-import { users as MOCK_USERS } from '@/mock/users';
+import type { NextAuthOptions } from 'next-auth';
+
+import { authUser, type NextAppUser } from '@/entities/user';
 
 const authCfg: NextAuthOptions = {
   providers: [
@@ -21,10 +22,9 @@ const authCfg: NextAuthOptions = {
       async authorize(creds) {
         if (!creds?.email || !creds.password) return null;
 
-        // for simplicity
-        const dbUser = MOCK_USERS.find(({ email, password }) => creds.email === email && creds.password === password);
+        const dbUser = await authUser(creds);
 
-        if (dbUser) return omit(dbUser, 'password') as NextUser;
+        if (dbUser) return omit(dbUser, 'password') as NextAppUser;
 
         return null;
       },
