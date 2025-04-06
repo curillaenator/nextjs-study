@@ -4,7 +4,8 @@ import Link from 'next/link';
 import type { PostContent } from '@/entities/post';
 import styles from './post.module.scss';
 
-import { CONTENTS } from '@/mock/postContents';
+const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vel at a.';
+const CONTENTS = [...new Array(30)].map(() => lorem.repeat(Math.ceil(Math.random() * 4)));
 
 const Post: FC<PostContent> = (props) => {
   const { id, title, content, date, author } = props;
@@ -17,7 +18,8 @@ const Post: FC<PostContent> = (props) => {
         {author} {date}
       </p>
 
-      <p>{content.concat(CONTENTS[id] || '')}</p>
+      <p>{content}</p>
+      <p>{CONTENTS[id] || CONTENTS[4]}</p>
     </Link>
   );
 };
