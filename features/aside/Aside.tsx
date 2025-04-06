@@ -44,7 +44,7 @@ const Aside: FC = () => {
 
   return (
     <aside
-      className={cn(styles.aside, styles[`aside_${darkmode ? 'dark' : 'light'}`], {
+      className={cn(styles.aside, {
         [styles.aside_open]: isAsideOpen,
       })}
     >

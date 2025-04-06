@@ -31,7 +31,10 @@
     "concurrently": "9.1.2",
     "eslint": "9.23.0",
     "eslint-config-next": "15.2.3",
+    "husky": "9.1.7",
     "json-server": "1.0.0-beta.3",
+    "lint-staged": "15.5.0",
+    "prettier": "3.5.3",
     "sass": "1.86.2",
     "typescript": "5.8.2"
   },

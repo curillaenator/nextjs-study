@@ -14,7 +14,9 @@ $asideMax: 384px;
 
   border-right: 1px solid var(--theme-neutral-300);
 
-  background: no-repeat url('./assets/asideTexture.png'), var(--layout-aside-bgc);
+  background:
+    no-repeat url('./assets/asideTexture.png'),
+    var(--layout-aside-bgc);
   background-position: center;
   background-size: cover;
   background-blend-mode: var(--layout-aside-bgc-blend-mode, overlay);

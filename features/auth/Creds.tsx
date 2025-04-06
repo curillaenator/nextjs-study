@@ -1,9 +1,10 @@
 'use client';
 
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { TbLogin } from 'react-icons/tb';
+
+import { TbLogin, TbMail, TbLockPassword } from 'react-icons/tb';
 
 import { Button } from '@/kit/button';
 import { Input } from '@/kit/input';
@@ -12,9 +13,6 @@ import styles from './creds.module.scss';
 
 export const CredsAuth: FC = () => {
   const router = useRouter();
-
-  const emailInputRef = useRef<HTMLInputElement | null>(null);
-  const passwordInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,16 +32,18 @@ export const CredsAuth: FC = () => {
     }
   };
 
-  useEffect(() => {
-    emailInputRef.current?.setAttribute('autocomplete', 'off');
-    passwordInputRef.current?.setAttribute('autocomplete', 'new-password');
-  }, []);
-
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <Input type='email' name='email' required placeholder='email' autoComplete='off' />
+      <Input leftElement={<TbMail />} type='email' name='email' required placeholder='email' autoComplete='email' />
 
-      <Input type='password' name='password' required placeholder='password' />
+      <Input
+        leftElement={<TbLockPassword />}
+        type='password'
+        name='password'
+        required
+        placeholder='password'
+        autoComplete='new-password'
+      />
 
       <Button type='submit' appearance='primary'>
         <TbLogin /> Sign in with creds

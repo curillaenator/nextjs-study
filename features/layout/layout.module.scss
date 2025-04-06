@@ -43,14 +43,6 @@
   &_dark {
     @include dark;
   }
-
-  &_automode {
-    @include light;
-
-    @media (prefers-color-scheme: dark) {
-      @include dark;
-    }
-  }
 }
 
 .view {

@@ -1,34 +1,69 @@
-.input {
-  outline: none;
-  border: none;
-  background-color: var(--theme-neutral-300);
+.inputWrapper {
+  cursor: text;
+  display: flex;
+  align-items: center;
 
-  font-family: var(--font-geist);
   width: 100%;
   border-radius: 8px;
   height: 40px;
-  padding: 8px;
 
   color: var(--theme-neutral-900);
-  font-size: 16px;
-  line-height: 24px;
-
-  box-shadow: inset 0 0 0 1px var(--theme-neutral-400);
-
-  &:-webkit-autofill {
-    font-family: var(--font-geist);
-    color: var(--theme-neutral-900);
-    box-shadow: inset 0 0 0px 1px var(--theme-neutral-400), inset 0 0 0px 100px var(--theme-neutral-300);
-  }
-
-  &::placeholder {
-    font-family: var(--font-geist);
-    color: var(--theme-neutral-500);
-  }
+  background-color: var(--theme-neutral-300);
+  border: 1px solid var(--theme-neutral-400);
 
   &:focus-within {
+    border: 1px solid var(--theme-primary-500);
+  }
+
+  & > svg {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+
+    &:first-child {
+      margin-left: 8px;
+    }
+
+    &:last-child {
+      margin-right: 8px;
+    }
+  }
+
+  & > input {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding: 7px 8px;
+
+    outline: none;
+    border: none;
+
     font-family: var(--font-geist);
     color: var(--theme-neutral-900);
-    box-shadow: inset 0 0 0px 1px var(--theme-primary-500), inset 0 0 0px 100px var(--theme-neutral-300);
+    font-size: 16px;
+    line-height: 24px;
+
+    background-color: var(--theme-neutral-300) !important;
+
+    &::placeholder {
+      font-family: var(--font-geist);
+      color: var(--theme-neutral-500);
+    }
+
+    // &:-webkit-autofill {
+    //   font-family: var(--font-geist);
+    //   color: var(--theme-neutral-900);
+    //   box-shadow: inset 0 0 0px 1px var(--theme-neutral-400), inset 0 0 0px 100px var(--theme-neutral-300);
+
+    // }
+  }
+
+  &_db {
+    cursor: default;
+
+    input {
+      cursor: default;
+    }
   }
 }

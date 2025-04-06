@@ -1,19 +1,32 @@
-'use client';
+import React, { forwardRef, useRef, useImperativeHandle } from 'react';
+import cn from 'classnames';
 
-import React, { FC, InputHTMLAttributes, useEffect, useRef } from 'react';
-
+import type { InputProps } from './interfaces';
 import styles from './input.module.scss';
 
-const Input: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
-  const { type } = props;
-  const inputRef = useRef<HTMLInputElement>(null);
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const { leftElement, rightElement, disabled, ...inputProps } = props;
 
-  useEffect(() => {
-    if (type !== 'password') return;
-    inputRef.current?.setAttribute('autocomplete', 'new-password');
-  }, [type]);
+  const inputInternalRef = useRef<HTMLInputElement | null>(null);
 
-  return <input {...props} ref={inputRef} className={styles.input} />;
-};
+  useImperativeHandle(ref, () => inputInternalRef.current!, []);
+
+  return (
+    <div
+      className={cn(styles.inputWrapper, {
+        [styles.inputWrapper_db]: !!disabled,
+      })}
+      onClick={() => {
+        inputInternalRef.current?.focus();
+      }}
+    >
+      {leftElement}
+
+      <input {...inputProps} ref={inputInternalRef} disabled={disabled} />
+
+      {rightElement}
+    </div>
+  );
+});
 
 export { Input };
