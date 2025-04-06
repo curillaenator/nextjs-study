@@ -34,7 +34,7 @@ export const CredsAuth: FC = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <Input leftElement={<TbMail />} type='email' name='email' required placeholder='email' autoComplete='email' />
+      <Input leftElement={<TbMail />} type='email' name='email' required placeholder='email' autoComplete='off' />
 
       <Input
         leftElement={<TbLockPassword />}
