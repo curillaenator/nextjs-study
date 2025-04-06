@@ -1,7 +1,5 @@
 import type { NextAppUser } from './interfaces';
 
-const asd = null;
-
 const USERS_ENDPOINT = 'http://localhost:4000/users';
 
 const authUser = async (creds: Record<'email' | 'password', string>) => {
