@@ -49,10 +49,10 @@
     },
     {
       "id": "4",
-      "title": "Что нового в React 18?",
-      "content": "React 18 приносит поддержку Concurrent Mode и автоматическую пакетную обработку событий.",
+      "title": "Что нового в React 19?",
+      "content": "useTransition\tUI-переходы без лагов\r\nuseActionState\tСтейт и ошибки при server actions\r\nuseFormStatus\tСостояние формы (pending/error)\r\nuseOptimistic\tОптимистичные обновления UI\r\nuse\tЖдёт промисы в Server Components",
       "author": "Дмитрий Фронтендер",
-      "date": "2025-03-07",
+      "date": "2025-04-07",
       "category": "Разработка"
     },
     {

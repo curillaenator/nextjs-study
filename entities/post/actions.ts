@@ -34,8 +34,6 @@ async function createPostAction(formData: FormData) {
 async function editPostAction(formData: FormData) {
   'use server';
 
-  console.log('editPostAction', formData);
-
   const { id } = await editPost({
     id: formData.get('id')?.toString() || getId(),
     title: formData.get('title')?.toString() || '',
