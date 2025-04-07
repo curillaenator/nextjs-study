@@ -1,3 +1,2 @@
-export { Post } from './Post';
+export { PostCard } from './PostCard';
 export { MasonryPosts } from './MasonryPosts';
-export { NewPostForm } from './NewPostForm';

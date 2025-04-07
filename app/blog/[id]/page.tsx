@@ -1,21 +1,11 @@
-import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
-
+import Link from 'next/link';
 import { Button } from '@/kit/button';
 
-import { getPostData, deletePost as dbDeletePost } from '@/entities/post';
+import { getPostData, removePostAction } from '@/entities/post';
 import styles from '../page.module.scss';
 
 interface ItemPageProps {
   params: Promise<{ id: string }>;
-}
-
-async function removePost(id: string) {
-  'use server';
-  await dbDeletePost(id);
-
-  revalidatePath('/blog');
-  redirect('/blog');
 }
 
 async function BlogItemPage({ params }: ItemPageProps) {
@@ -29,8 +19,13 @@ async function BlogItemPage({ params }: ItemPageProps) {
       <p>{content}</p>
 
       <br />
-      <form action={removePost.bind(null, id)}>
+
+      <form action={removePostAction.bind(null, id)} style={{ display: 'flex', gap: '16px' }}>
         <Button type='submit'>Delete post</Button>
+
+        <Button type='button' component={Link} href={`/blog/${id}/edit`}>
+          Edit post
+        </Button>
       </form>
     </div>
   );
