@@ -11,7 +11,7 @@
     "json": "npx json-server db.json -p 4000"
   },
   "dependencies": {
-    "@k-art/masonry-grid": "1.0.0",
+    "@k-art/masonry-grid": "1.0.1",
     "classnames": "2.5.1",
     "date-fns": "4.1.0",
     "effector": "23.3.0",
