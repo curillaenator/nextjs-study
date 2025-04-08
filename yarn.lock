@@ -364,19 +364,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@k-art/masonry-grid@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@k-art/masonry-grid@npm:1.0.2"
-  dependencies:
-    classnames: 2.5.1
-  peerDependencies:
-    lodash: "*"
-    react: ">=18.2.0"
-    react-dom: ">=18.2.0"
-  checksum: d5ab4b0ec7c0b781e2f4dee7181ba8fe0aae7c4f96bf14bc4864c1e8ea799d9c9f3c5a26e19c191763b4c3ea18a93d996f864d479f3949f4f2aeb09287be94f2
-  languageName: node
-  linkType: hard
-
 "@napi-rs/wasm-runtime@npm:^0.2.7":
   version: 0.2.7
   resolution: "@napi-rs/wasm-runtime@npm:0.2.7"
@@ -3772,7 +3759,6 @@ __metadata:
   resolution: "nextjs-study@workspace:."
   dependencies:
     "@eslint/eslintrc": 3.3.1
-    "@k-art/masonry-grid": 1.0.2
     "@types/lodash": 4.17.16
     "@types/node": 22.14.0
     "@types/react": 19.1.0
@@ -3795,6 +3781,7 @@ __metadata:
     react-dom: 19.1.0
     react-hook-form: 7.55.0
     react-icons: 5.5.0
+    responsive-masonry-grid: 1.0.1
     sass: 1.86.2
     typescript: 5.8.2
     uuid: 11.1.0
@@ -4382,6 +4369,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: 064d09c1808d0c51b3d90b5d27e198e6d0c5dad0eb57065fd40803d6a20553e5398b07f76739d69cbabc12547058bec6b32106ea66622375fb0d7e8fca6a846c
+  languageName: node
+  linkType: hard
+
+"responsive-masonry-grid@npm:1.0.1":
+  version: 1.0.1
+  resolution: "responsive-masonry-grid@npm:1.0.1"
+  dependencies:
+    classnames: 2.5.1
+  peerDependencies:
+    lodash: "*"
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
+  checksum: 58747bf1cd0e7063e7b8c649bb2cf73001c7dfcfcac820d99ae799b1b771f3c5b5f8280b9203918664836d303ee4d0a5aeb5927e2c3e5bae15f979e32401326e
   languageName: node
   linkType: hard
 
