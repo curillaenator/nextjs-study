@@ -10,11 +10,11 @@ import cn from 'classnames';
 import {
   TbLayoutSidebarLeftExpand,
   TbLayoutSidebarRightExpand,
-  TbHome,
   TbInfoHexagon,
-  TbDog,
+  TbLayout,
   TbLogin,
   TbLogout,
+  TbCat,
 } from 'react-icons/tb';
 
 import { $appStore, toggleAside } from '@/entities/app';
@@ -24,8 +24,8 @@ import type { ComponentAppearance } from '@/theme/interfaces';
 import styles from './aside.module.scss';
 
 const NAV = [
-  { title: 'Home', href: '/', Icon: TbHome },
-  { title: 'Blog', href: '/blog', Icon: TbDog },
+  { title: 'Home', href: '/', Icon: TbCat },
+  { title: 'Blog', href: '/posts', Icon: TbLayout },
   { title: 'My profile', href: '/profile', Icon: TbInfoHexagon },
 ];
 

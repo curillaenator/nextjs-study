@@ -1,9 +1,9 @@
 'use client';
 
 import React, { FC } from 'react';
+import { MasonryGrid } from '@k-art/masonry-grid';
 
 import type { PostContent } from '@/entities/post';
-import { MasonryGrid } from '@/kit/masonry';
 
 import { PostCard } from './PostCard';
 

@@ -11,7 +11,7 @@ const PostCard: FC<PostContent> = (props) => {
   const { id, title, content, date, author } = props;
 
   return (
-    <Link className={styles.post} href={`/blog/${id}`}>
+    <Link className={styles.post} href={`/posts/${id}`}>
       <h1>{title}</h1>
 
       <p data-meta>

@@ -34,7 +34,7 @@ async function PostForm() {
           <MdOutlineCreate /> Create new post
         </Button>
 
-        <Button component={Link} href='/blog'>
+        <Button component={Link} href='/posts'>
           <MdOutlineArrowBack /> Back
         </Button>
       </div>

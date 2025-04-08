@@ -48,7 +48,7 @@ async function EditPostForm({ params }: EditPageParams) {
           <MdOutlineCreate /> Edit post
         </Button>
 
-        <Button component={Link} href={`/blog/${id}`}>
+        <Button component={Link} href={`/posts/${id}`}>
           <MdOutlineArrowBack /> Back
         </Button>
       </div>

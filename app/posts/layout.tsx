@@ -21,12 +21,12 @@ export default function Layout({ children }: { children: ReactNode }) {
   const pathName = usePathname();
 
   const isPost = !!keys(useParams()).length;
-  const isPostCreate = pathName === '/blog/new';
+  const isPostCreate = pathName === '/posts/new';
 
   const buttonProps = isPost
     ? {
         component: Link,
-        href: '/blog',
+        href: '/posts',
         children: (
           <>
             <MdOutlineArrowBack /> Posts dashboard
@@ -35,7 +35,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       }
     : {
         component: Link,
-        href: '/blog/new',
+        href: '/posts/new',
         children: (
           <>
             <MdOutlineCreate /> Create new post

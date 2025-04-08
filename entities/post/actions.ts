@@ -27,8 +27,8 @@ async function createPostAction(formData: FormData) {
     date: format(new Date(Date.now()), POST_DATE_FORMAT),
   });
 
-  revalidatePath('/blog');
-  redirect(`/blog/${post.id}`);
+  revalidatePath('/posts');
+  redirect(`/posts/${post.id}`);
 }
 
 async function editPostAction(formData: FormData) {
@@ -41,17 +41,17 @@ async function editPostAction(formData: FormData) {
     date: format(new Date(Date.now()), POST_DATE_FORMAT),
   });
 
-  revalidatePath('/blog');
-  revalidatePath(`/blog/${id}`);
-  redirect(`/blog/${id}`);
+  revalidatePath('/posts');
+  revalidatePath(`/posts/${id}`);
+  redirect(`/posts/${id}`);
 }
 
 async function removePostAction(id: string) {
   'use server';
   await deletePost(id);
 
-  revalidatePath('/blog');
-  redirect('/blog');
+  revalidatePath('/posts');
+  redirect('/posts');
 }
 
 export { createPostAction, editPostAction, removePostAction };

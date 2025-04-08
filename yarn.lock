@@ -364,6 +364,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@k-art/masonry-grid@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@k-art/masonry-grid@npm:1.0.0"
+  dependencies:
+    classnames: 2.5.1
+  peerDependencies:
+    lodash: "*"
+    react: ">=18.2.0"
+    react-dom: ">=18.2.0"
+  checksum: 4e3334c37137f5188f2be62a1fecc8150c109bc19f76cc71f43345e11d3576989ac9eb7a6bd321ec37eaffe48d6a2387755b8b58d0cdb0e6401e2402095552d8
+  languageName: node
+  linkType: hard
+
 "@napi-rs/wasm-runtime@npm:^0.2.7":
   version: 0.2.7
   resolution: "@napi-rs/wasm-runtime@npm:0.2.7"
@@ -3759,6 +3772,7 @@ __metadata:
   resolution: "nextjs-study@workspace:."
   dependencies:
     "@eslint/eslintrc": 3.3.1
+    "@k-art/masonry-grid": ^1.0.0
     "@types/lodash": 4.17.16
     "@types/node": 22.14.0
     "@types/react": 19.1.0

@@ -23,7 +23,7 @@ async function BlogItemPage({ params }: ItemPageProps) {
       <form action={removePostAction.bind(null, id)} style={{ display: 'flex', gap: '16px' }}>
         <Button type='submit'>Delete post</Button>
 
-        <Button type='button' component={Link} href={`/blog/${id}/edit`}>
+        <Button type='button' component={Link} href={`/posts/${id}/edit`}>
           Edit post
         </Button>
       </form>
